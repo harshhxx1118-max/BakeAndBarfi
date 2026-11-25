@@ -1,0 +1,3213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bake and Barfi – From Pastries To Methai We Always Setisfy❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<!-- Official Google Identity Services SDK for Auto One-Tap & Sign-In -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<style>
+/* ===== CSS VARIABLES ===== */
+:root {
+  --cream: #FFF8F0;
+  --warm-white: #FEFAF5;
+  --gold: #C8963E;
+  --gold-light: #E8B86D;
+  --gold-dark: #9B6E28;
+  --brown: #5C3D1E;
+  --brown-light: #8B5E3C;
+  --brown-dark: #3A2010;
+  --red: #A0271A;
+  --red-light: #D4432F;
+  --accent: #E07B39;
+  --text-dark: #2C1810;
+  --text-mid: #5C3D1E;
+  --text-light: #8B6E50;
+  --shadow: rgba(92, 61, 30, 0.15);
+  --shadow-strong: rgba(92, 61, 30, 0.35);
+  --overlay: rgba(44, 24, 16, 0.75);
+}
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; outline: none; font-family: inherit; }
+input, select, textarea { font-family: inherit; outline: none; }
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+
+/* ===== LOADER ===== */
+#loader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--brown-dark);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 20px;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+#loader.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+.loader-logo-wrap {
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  animation: pulse-loader 1.4s ease-in-out infinite;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.loader-logo-img {
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--gold);
+  box-shadow: 0 0 35px rgba(200,150,62,0.5);
+}
+.loader-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  color: var(--gold-light);
+  animation: fade-in-up 1s ease forwards;
+  text-align: center;
+  padding: 0 16px;
+}
+.loader-bar {
+  width: 200px; height: 4px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 2px; overflow: hidden;
+}
+.loader-bar-fill {
+  height: 100%; width: 0;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 2px;
+  animation: load-bar 2.2s ease forwards;
+}
+@keyframes pulse-loader {
+  0%,100% { transform: scale(1); box-shadow: 0 0 30px rgba(200,150,62,0.4); }
+  50% { transform: scale(1.06); box-shadow: 0 0 50px rgba(200,150,62,0.7); }
+}
+@keyframes load-bar { to { width: 100%; } }
+
+/* ===== NAVBAR ===== */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(255,248,240,0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(200,150,62,0.25);
+  transition: all 0.3s ease;
+  padding: 0 24px;
+}
+#navbar.scrolled {
+  background: rgba(255,248,240,0.98);
+  box-shadow: 0 4px 20px var(--shadow);
+  padding: 0 24px;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 12px;
+}
+.nav-logo-img {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold);
+  box-shadow: 0 2px 10px var(--shadow-strong);
+  transition: transform 0.3s ease;
+}
+.nav-logo:hover .nav-logo-img {
+  transform: rotate(8deg) scale(1.08);
+}
+.nav-logo-text { line-height: 1.1; }
+.nav-logo-text strong {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 700;
+  color: var(--brown);
+}
+.nav-logo-text span {
+  font-size: 0.72rem; color: var(--gold-dark);
+  font-style: italic;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-links a {
+  font-size: 0.88rem; font-weight: 500;
+  color: var(--text-mid);
+  padding: 8px 14px; border-radius: 8px;
+  transition: all 0.25s ease;
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: 4px; left: 50%; right: 50%;
+  height: 2px; background: var(--gold); border-radius: 1px;
+  transition: all 0.3s ease;
+}
+.nav-links a:hover { color: var(--brown); }
+.nav-links a:hover::after { left: 14px; right: 14px; }
+.nav-actions { display: flex; align-items: center; gap: 10px; }
+.btn-login {
+  background: transparent;
+  border: 2px solid var(--gold);
+  color: var(--gold-dark);
+  font-size: 0.85rem; font-weight: 600;
+  padding: 8px 20px; border-radius: 25px;
+  transition: all 0.3s ease;
+}
+.btn-login:hover {
+  background: var(--gold); color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(200,150,62,0.4);
+}
+.btn-order {
+  background: linear-gradient(135deg, var(--brown), var(--brown-light));
+  color: white;
+  font-size: 0.85rem; font-weight: 600;
+  padding: 9px 20px; border-radius: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 12px var(--shadow);
+}
+.btn-order:hover {
+  background: linear-gradient(135deg, var(--red), var(--red-light));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(160,39,26,0.35);
+}
+.nav-user {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--cream);
+  border: 1.5px solid var(--gold);
+  border-radius: 25px; padding: 6px 14px;
+  cursor: pointer; transition: all 0.3s ease;
+}
+.nav-user:hover { background: var(--gold); color: white; }
+.nav-user:hover span, .nav-user:hover i { color: white; }
+.nav-user i { font-size: 1rem; color: var(--gold-dark); }
+.nav-user span { font-size: 0.82rem; font-weight: 600; color: var(--brown); }
+.nav-toggle {
+  display: none;
+  flex-direction: column; gap: 5px;
+  background: none; padding: 8px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+.nav-toggle:hover { background: var(--shadow); }
+.nav-toggle span {
+  display: block; width: 24px; height: 2.5px;
+  background: var(--brown);
+  border-radius: 2px; transition: all 0.3s ease;
+}
+.nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+.mobile-menu {
+  display: none; position: fixed;
+  top: 70px; left: 0; right: 0;
+  background: rgba(255,248,240,0.98);
+  backdrop-filter: blur(14px);
+  border-bottom: 2px solid var(--gold);
+  padding: 20px 24px;
+  flex-direction: column; gap: 4px;
+  z-index: 999;
+  transform: translateY(-10px); opacity: 0;
+  transition: all 0.3s ease;
+}
+.mobile-menu.open { opacity: 1; transform: translateY(0); }
+.mobile-menu a {
+  font-size: 1rem; font-weight: 500;
+  color: var(--text-mid);
+  padding: 12px 16px; border-radius: 10px;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+.mobile-menu a:hover {
+  background: rgba(200,150,62,0.12);
+  border-left-color: var(--gold);
+  color: var(--brown);
+}
+
+/* ===== HERO ===== */
+#hero {
+  min-height: 100vh;
+  background: linear-gradient(165deg, var(--brown-dark) 0%, var(--brown) 40%, #7A4A28 70%, var(--gold-dark) 100%);
+  display: flex; align-items: center;
+  justify-content: center;
+  position: relative; overflow: hidden;
+  padding: 100px 24px 60px;
+}
+.hero-bg-pattern {
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(200,150,62,0.18) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(200,150,62,0.12) 0%, transparent 50%),
+    radial-gradient(circle at 50% 100%, rgba(255,255,255,0.05) 0%, transparent 60%);
+  animation: hero-bg-shift 8s ease-in-out infinite alternate;
+}
+.hero-ornament {
+  position: absolute; opacity: 0.08;
+  font-size: 20rem; color: var(--gold-light);
+  pointer-events: none; user-select: none;
+}
+.hero-ornament.top-left { top: -60px; left: -60px; transform: rotate(-20deg); }
+.hero-ornament.bottom-right { bottom: -60px; right: -60px; transform: rotate(20deg); }
+@keyframes hero-bg-shift {
+  from { opacity: 1; }
+  to { opacity: 0.7; }
+}
+.floating-shapes {
+  position: absolute; inset: 0;
+  pointer-events: none;
+}
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.08;
+  animation: float-shape linear infinite;
+}
+.shape:nth-child(1) { width: 80px; height: 80px; background: var(--gold-light); top: 15%; left: 8%; animation-duration: 12s; }
+.shape:nth-child(2) { width: 50px; height: 50px; background: var(--cream); top: 60%; left: 5%; animation-duration: 9s; animation-delay: -3s; }
+.shape:nth-child(3) { width: 100px; height: 100px; background: var(--gold); top: 25%; right: 10%; animation-duration: 15s; animation-delay: -6s; }
+.shape:nth-child(4) { width: 60px; height: 60px; background: var(--cream); top: 70%; right: 8%; animation-duration: 11s; animation-delay: -4s; }
+.shape:nth-child(5) { width: 35px; height: 35px; background: var(--gold-light); top: 85%; left: 40%; animation-duration: 8s; animation-delay: -2s; }
+@keyframes float-shape {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(180deg); }
+  100% { transform: translateY(0) rotate(360deg); }
+}
+.hero-content {
+  max-width: 1100px; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: center; z-index: 1;
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(200,150,62,0.2);
+  border: 1px solid rgba(200,150,62,0.4);
+  color: var(--gold-light);
+  font-size: 0.8rem; font-weight: 600;
+  padding: 7px 18px; border-radius: 25px;
+  margin-bottom: 24px;
+  animation: fade-in-up 0.8s ease forwards;
+  opacity: 0; animation-delay: 0.3s;
+  letter-spacing: 0.5px;
+}
+.hero-badge i { font-size: 0.75rem; }
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 900;
+  color: var(--cream);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  animation: fade-in-up 0.8s ease forwards;
+  opacity: 0; animation-delay: 0.5s;
+}
+.hero-title .accent { color: var(--gold-light); }
+.hero-title .cursive {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.1em;
+  color: var(--gold-light);
+}
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: rgba(255,248,240,0.8);
+  margin-bottom: 32px;
+  animation: fade-in-up 0.8s ease forwards;
+  opacity: 0; animation-delay: 0.7s;
+  line-height: 1.7;
+}
+.hero-tags {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin-bottom: 36px;
+  animation: fade-in-up 0.8s ease forwards;
+  opacity: 0; animation-delay: 0.9s;
+}
+.hero-tag {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--cream);
+  font-size: 0.82rem; font-weight: 500;
+  padding: 6px 14px; border-radius: 20px;
+}
+.hero-tag i { color: var(--gold-light); font-size: 0.75rem; }
+.hero-buttons {
+  display: flex; flex-wrap: wrap; gap: 14px;
+  animation: fade-in-up 0.8s ease forwards;
+  opacity: 0; animation-delay: 1.1s;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: white;
+  font-size: 0.95rem; font-weight: 600;
+  padding: 14px 30px; border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 25px rgba(200,150,62,0.45);
+  border: none;
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 35px rgba(200,150,62,0.55);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+}
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.12);
+  border: 2px solid rgba(255,255,255,0.3);
+  color: white;
+  font-size: 0.95rem; font-weight: 600;
+  padding: 12px 28px; border-radius: 50px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.22);
+  border-color: var(--gold-light);
+  transform: translateY(-2px);
+}
+.hero-visual {
+  display: flex; align-items: center; justify-content: center;
+  animation: fade-in-up 0.8s ease forwards;
+  opacity: 0; animation-delay: 0.4s;
+}
+.hero-logo-circle {
+  width: 310px; height: 310px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cream) 0%, #FFF0D8 100%);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow:
+    0 0 0 8px rgba(200,150,62,0.25),
+    0 0 0 16px rgba(200,150,62,0.12),
+    0 25px 60px rgba(0,0,0,0.4);
+  animation: logo-spin-glow 6s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+.hero-logo-circle::before {
+  content: '';
+  position: absolute; inset: -50%;
+  background: conic-gradient(transparent, rgba(200,150,62,0.25), transparent);
+  animation: rotate-conic 8s linear infinite;
+}
+.hero-real-logo-img {
+  position: relative; z-index: 2;
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--gold-light);
+  transition: transform 0.4s ease;
+}
+.hero-logo-circle:hover .hero-real-logo-img {
+  transform: scale(1.04) rotate(2deg);
+}
+
+@keyframes logo-spin-glow {
+  0%,100% { box-shadow: 0 0 0 8px rgba(200,150,62,0.25), 0 0 0 16px rgba(200,150,62,0.12), 0 25px 60px rgba(0,0,0,0.4); transform: scale(1); }
+  50% { box-shadow: 0 0 0 12px rgba(200,150,62,0.35), 0 0 0 24px rgba(200,150,62,0.18), 0 30px 70px rgba(0,0,0,0.5); transform: scale(1.03); }
+}
+@keyframes rotate-conic {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.hero-stats {
+  grid-column: 1 / -1;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(200,150,62,0.2);
+  border-radius: 20px; overflow: hidden;
+  animation: fade-in-up 0.8s ease forwards;
+  opacity: 0; animation-delay: 1.3s;
+}
+.hero-stat {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  padding: 20px; text-align: center;
+  transition: background 0.3s ease;
+}
+.hero-stat:hover { background: rgba(255,255,255,0.14); }
+.hero-stat strong {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; font-weight: 900;
+  color: var(--gold-light);
+}
+.hero-stat span { font-size: 0.8rem; color: rgba(255,248,240,0.75); font-weight: 400; }
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== MARQUEE ===== */
+.marquee-strip {
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark));
+  padding: 14px 0; overflow: hidden;
+  border-top: 2px solid rgba(255,255,255,0.15);
+  border-bottom: 2px solid rgba(255,255,255,0.15);
+}
+.marquee-track {
+  display: flex; gap: 0;
+  animation: marquee 25s linear infinite;
+  width: max-content;
+}
+.marquee-item {
+  display: flex; align-items: center; gap: 10px;
+  color: white; font-size: 0.88rem; font-weight: 600;
+  padding: 0 30px; white-space: nowrap;
+  letter-spacing: 0.5px;
+}
+.marquee-item i { font-size: 1rem; opacity: 0.8; }
+.marquee-dot { color: rgba(255,255,255,0.5); font-size: 1.2rem; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ===== SECTION BASE ===== */
+.section { padding: 90px 24px; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--gold-dark); font-size: 0.82rem; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.section-label::before, .section-label::after {
+  content: ''; display: block; width: 30px; height: 1.5px;
+  background: var(--gold);
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800; color: var(--brown);
+  line-height: 1.2; margin-bottom: 16px;
+}
+.section-title .accent { color: var(--gold-dark); }
+.section-desc {
+  font-size: 1rem; color: var(--text-light);
+  max-width: 580px; margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* ===== PRODUCTS ===== */
+#products { background: var(--warm-white); }
+.product-tabs {
+  display: flex; justify-content: center;
+  gap: 8px; flex-wrap: wrap; margin-bottom: 44px;
+}
+.tab-btn {
+  background: white; border: 2px solid var(--gold);
+  color: var(--gold-dark); font-size: 0.88rem; font-weight: 600;
+  padding: 10px 24px; border-radius: 50px;
+  transition: all 0.3s ease;
+}
+.tab-btn.active, .tab-btn:hover {
+  background: var(--gold); color: white;
+  box-shadow: 0 4px 15px rgba(200,150,62,0.3);
+  transform: translateY(-2px);
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px;
+}
+.product-card {
+  background: white; border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px var(--shadow);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  animation: fade-in-up 0.6s ease forwards;
+  opacity: 0;
+}
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px var(--shadow-strong);
+}
+.product-img-wrap {
+  position: relative; overflow: hidden;
+  height: 200px;
+  background: linear-gradient(135deg, #f5e6d0, #ffe4b5);
+  display: flex; align-items: center; justify-content: center;
+}
+.product-emoji { font-size: 5rem; transition: transform 0.5s ease; }
+.product-card:hover .product-emoji { transform: scale(1.2) rotate(-5deg); }
+.product-badge {
+  position: absolute; top: 12px; left: 12px;
+  background: linear-gradient(135deg, var(--red), var(--red-light));
+  color: white; font-size: 0.72rem; font-weight: 700;
+  padding: 5px 12px; border-radius: 15px;
+  letter-spacing: 0.5px;
+}
+.product-badge.new { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+.product-badge.popular { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); }
+.product-fav {
+  position: absolute; top: 12px; right: 12px;
+  width: 36px; height: 36px;
+  background: white; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px var(--shadow);
+  color: #ccc;
+}
+.product-fav.active, .product-fav:hover { color: var(--red); transform: scale(1.15); }
+.product-info { padding: 18px; }
+.product-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 700;
+  color: var(--brown); margin-bottom: 6px;
+}
+.product-desc { font-size: 0.82rem; color: var(--text-light); margin-bottom: 14px; line-height: 1.6; }
+.product-footer {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.product-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem; font-weight: 800;
+  color: var(--gold-dark);
+}
+.product-price span { font-size: 0.8rem; color: var(--text-light); font-weight: 400; font-family: 'Poppins', sans-serif; }
+.btn-add-cart {
+  background: linear-gradient(135deg, var(--brown), var(--brown-light));
+  color: white; font-size: 0.82rem; font-weight: 600;
+  padding: 8px 18px; border-radius: 20px;
+  transition: all 0.3s ease;
+  display: flex; align-items: center; gap: 6px;
+}
+.btn-add-cart:hover {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(200,150,62,0.4);
+}
+
+/* ===== FEATURES ===== */
+#features {
+  background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown) 100%);
+  color: white;
+}
+.features-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 28px;
+}
+.feature-card {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(200,150,62,0.25);
+  border-radius: 20px; padding: 32px 24px;
+  text-align: center;
+  transition: all 0.4s ease;
+  animation: fade-in-up 0.6s ease forwards;
+  opacity: 0;
+}
+.feature-card:hover {
+  background: rgba(200,150,62,0.15);
+  border-color: rgba(200,150,62,0.5);
+  transform: translateY(-8px);
+}
+.feature-icon {
+  width: 68px; height: 68px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem; margin: 0 auto 20px;
+  box-shadow: 0 8px 25px rgba(200,150,62,0.4);
+  transition: transform 0.3s ease;
+}
+.feature-card:hover .feature-icon { transform: scale(1.1) rotate(-5deg); }
+.feature-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 700;
+  color: var(--gold-light); margin-bottom: 10px;
+}
+.feature-desc { font-size: 0.85rem; color: rgba(255,248,240,0.75); line-height: 1.7; }
+
+/* ===== TESTIMONIALS ===== */
+#testimonials { background: var(--cream); }
+.testimonials-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+}
+.testimonial-card {
+  background: white; border-radius: 20px;
+  padding: 28px; box-shadow: 0 4px 20px var(--shadow);
+  transition: all 0.4s ease;
+  position: relative;
+  animation: fade-in-up 0.6s ease forwards; opacity: 0;
+}
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px var(--shadow-strong);
+}
+.testimonial-card::before {
+  content: '\201C';
+  position: absolute; top: 16px; right: 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem; color: var(--gold);
+  opacity: 0.15; line-height: 1;
+}
+.testimonial-stars {
+  color: var(--gold); font-size: 0.95rem;
+  margin-bottom: 14px;
+}
+.testimonial-text {
+  font-size: 0.92rem; color: var(--text-mid);
+  line-height: 1.8; margin-bottom: 20px;
+  font-style: italic;
+}
+.testimonial-author {
+  display: flex; align-items: center; gap: 12px;
+}
+.author-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--brown));
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 1.1rem; font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  flex-shrink: 0;
+}
+.author-name { font-weight: 600; font-size: 0.9rem; color: var(--brown); }
+.author-loc { font-size: 0.78rem; color: var(--text-light); }
+
+/* ===== CONTACT ===== */
+#contact { background: var(--warm-white); }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 50px; align-items: start;
+}
+.contact-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; font-weight: 800;
+  color: var(--brown); margin-bottom: 20px;
+}
+.contact-items { display: flex; flex-direction: column; gap: 18px; margin-bottom: 30px; }
+.contact-item {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 16px 20px;
+  background: white; border-radius: 14px;
+  box-shadow: 0 2px 10px var(--shadow);
+  transition: all 0.3s ease;
+}
+.contact-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 6px 20px var(--shadow-strong);
+}
+.contact-icon {
+  width: 44px; height: 44px; flex-shrink: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 1.1rem;
+}
+.contact-label { font-size: 0.75rem; color: var(--text-light); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+.contact-value { font-size: 0.95rem; color: var(--text-dark); font-weight: 600; }
+.social-links { display: flex; gap: 12px; margin-top: 20px; }
+.social-link {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; color: white;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.social-link.insta { background: linear-gradient(135deg, #E1306C, #C13584, #833AB4); }
+.social-link.wa { background: #25D366; }
+.social-link.fb { background: #1877F2; }
+.social-link.email { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); }
+.social-link:hover { transform: translateY(-4px) scale(1.1); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+.contact-form {
+  background: white; border-radius: 24px;
+  padding: 36px; box-shadow: 0 8px 30px var(--shadow);
+}
+.contact-form h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 800;
+  color: var(--brown); margin-bottom: 24px;
+}
+.form-group { margin-bottom: 18px; }
+.form-group label {
+  display: block; font-size: 0.82rem; font-weight: 600;
+  color: var(--text-mid); margin-bottom: 7px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.form-control {
+  width: 100%; padding: 12px 16px;
+  border: 2px solid rgba(200,150,62,0.25);
+  border-radius: 12px; font-size: 0.9rem;
+  color: var(--text-dark);
+  background: var(--cream);
+  transition: all 0.3s ease;
+}
+.form-control:focus {
+  border-color: var(--gold);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(200,150,62,0.15);
+}
+textarea.form-control { resize: vertical; min-height: 120px; }
+.btn-submit {
+  width: 100%;
+  background: linear-gradient(135deg, var(--brown), var(--brown-light));
+  color: white; font-size: 0.95rem; font-weight: 600;
+  padding: 14px; border-radius: 12px;
+  transition: all 0.3s ease;
+  border: none;
+}
+.btn-submit:hover {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(200,150,62,0.4);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--brown-dark); color: white;
+  padding: 60px 24px 30px;
+}
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px; margin-bottom: 40px;
+}
+.footer-brand .logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; font-weight: 900;
+  color: var(--gold-light); margin-bottom: 12px;
+}
+.footer-brand .tagline {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.1rem; color: rgba(255,248,240,0.7);
+  margin-bottom: 16px;
+}
+.footer-brand p { font-size: 0.85rem; color: rgba(255,248,240,0.65); line-height: 1.8; }
+.footer-col h4 {
+  font-size: 0.95rem; font-weight: 700;
+  color: var(--gold-light); margin-bottom: 20px;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a {
+  font-size: 0.85rem; color: rgba(255,248,240,0.65);
+  transition: color 0.2s ease;
+  display: flex; align-items: center; gap: 7px;
+}
+.footer-col ul li a:hover { color: var(--gold-light); }
+.footer-col ul li a i { font-size: 0.75rem; }
+.footer-divider {
+  height: 1px; background: rgba(255,255,255,0.1);
+  margin-bottom: 24px;
+}
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px;
+}
+.footer-bottom p { font-size: 0.82rem; color: rgba(255,248,240,0.5); }
+.footer-bottom span { color: var(--gold-light); }
+
+/* ===== MODALS ===== */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 10000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  opacity: 0; visibility: hidden;
+  transition: all 0.35s ease;
+}
+.modal-overlay.open { opacity: 1; visibility: visible; }
+.modal {
+  background: white; border-radius: 28px;
+  padding: 40px; width: 100%; max-width: 440px;
+  max-height: 90vh; overflow-y: auto;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+  transform: scale(0.9) translateY(20px);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+}
+.modal-overlay.open .modal { transform: scale(1) translateY(0); }
+.modal-close {
+  position: absolute; top: 18px; right: 18px;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.07);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; color: var(--text-mid);
+  cursor: pointer; transition: all 0.2s ease;
+  border: none; z-index: 2;
+}
+.modal-close:hover { background: rgba(0,0,0,0.14); color: var(--red); transform: rotate(90deg); }
+.modal-header { text-align: center; margin-bottom: 24px; }
+.modal-logo-img {
+  width: 76px; height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold);
+  margin: 0 auto 12px;
+  display: block;
+  box-shadow: 0 6px 20px rgba(92,61,30,0.25);
+}
+.modal-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem; font-weight: 800;
+  color: var(--brown); margin-bottom: 6px;
+}
+.modal-header p { font-size: 0.88rem; color: var(--text-light); }
+.social-auth { display: flex; gap: 12px; margin-bottom: 20px; }
+.social-auth-btn {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 10px; border-radius: 12px;
+  font-size: 0.85rem; font-weight: 600;
+  border: 2px solid #e0e0e0;
+  background: white; color: var(--text-dark);
+  transition: all 0.3s ease; cursor: pointer;
+}
+.social-auth-btn:hover {
+  border-color: var(--gold);
+  box-shadow: 0 4px 15px var(--shadow);
+  transform: translateY(-2px);
+}
+.social-auth-btn.facebook i { color: #1877F2; }
+.auth-divider {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 22px;
+}
+.auth-divider::before, .auth-divider::after {
+  content: ''; flex: 1; height: 1.5px;
+  background: rgba(0,0,0,0.1);
+}
+.auth-divider span { font-size: 0.8rem; color: var(--text-light); font-weight: 500; white-space: nowrap; }
+.auth-form .form-group { margin-bottom: 16px; }
+.auth-form label {
+  display: block; font-size: 0.8rem; font-weight: 600;
+  color: var(--text-mid); margin-bottom: 6px;
+}
+.auth-input-wrap { position: relative; }
+.auth-input-wrap > i {
+  position: absolute; left: 14px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold-dark); font-size: 0.95rem;
+}
+.auth-input {
+  width: 100%; padding: 12px 40px 12px 42px;
+  border: 2px solid rgba(200,150,62,0.25);
+  border-radius: 12px; font-size: 0.9rem;
+  color: var(--text-dark); background: var(--cream);
+  transition: all 0.3s ease;
+}
+.auth-input:focus {
+  border-color: var(--gold);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(200,150,62,0.15);
+}
+.auth-input.error { border-color: var(--red); }
+.input-err-msg {
+  font-size: 0.75rem; color: var(--red);
+  margin-top: 5px; display: none;
+}
+.show-pass-btn {
+  position: absolute; right: 12px; top: 50%;
+  transform: translateY(-50%);
+  background: none; color: var(--text-light);
+  font-size: 1rem; border: none; cursor: pointer;
+  transition: color 0.2s;
+}
+.show-pass-btn:hover { color: var(--gold-dark); }
+.auth-opts {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 20px; flex-wrap: wrap; gap: 8px;
+}
+.check-label {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.82rem; color: var(--text-mid); cursor: pointer;
+}
+.check-label input[type="checkbox"] {
+  width: 16px; height: 16px;
+  accent-color: var(--gold-dark); cursor: pointer;
+}
+.forgot-link {
+  font-size: 0.82rem; color: var(--gold-dark);
+  font-weight: 600; cursor: pointer;
+  transition: color 0.2s;
+  background: none; border: none;
+  font-family: inherit;
+}
+.forgot-link:hover { color: var(--red); text-decoration: underline; }
+.btn-auth {
+  width: 100%; padding: 13px;
+  background: linear-gradient(135deg, var(--brown), var(--brown-light));
+  color: white; font-size: 0.95rem; font-weight: 700;
+  border-radius: 12px; border: none; cursor: pointer;
+  transition: all 0.3s ease; margin-bottom: 14px;
+  font-family: 'Poppins', sans-serif;
+  position: relative; overflow: hidden;
+}
+.btn-auth::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.btn-auth:hover::after { opacity: 1; }
+.btn-auth span { position: relative; z-index: 1; }
+.btn-auth:hover { transform: translateY(-2px); box-shadow: 0 8px 25px var(--shadow-strong); }
+.btn-gmail-direct {
+  width: 100%; padding: 11px 14px;
+  background: #fff;
+  border: 1.5px dashed var(--gold);
+  color: var(--brown);
+  border-radius: 12px;
+  font-size: 0.84rem; font-weight: 600;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-bottom: 16px;
+  transition: all 0.25s ease;
+}
+.btn-gmail-direct:hover {
+  background: var(--cream);
+  border-style: solid;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px var(--shadow);
+}
+.auth-switch {
+  text-align: center; font-size: 0.85rem;
+  color: var(--text-light);
+}
+.auth-switch button {
+  color: var(--gold-dark); font-weight: 700;
+  background: none; border: none;
+  cursor: pointer; font-family: inherit;
+  font-size: 0.85rem; transition: color 0.2s;
+}
+.auth-switch button:hover { color: var(--red); text-decoration: underline; }
+
+/* ===== GOOGLE AUTO-SIGNIN CONTAINER ===== */
+#g_id_onload { display: none; }
+.google-onetap-box {
+  margin: 12px 0 16px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== GOOGLE SIGN-IN REDIRECT INTERFACE ===== */
+.google-auth-overlay {
+  position: fixed; inset: 0; z-index: 11000;
+  background: #f0f4f9;
+  display: none; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 20px;
+}
+.google-auth-overlay.open { display: flex; }
+.google-topbar {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 52px; background: #fff;
+  border-bottom: 1px solid #e0e3e7;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 20px;
+}
+.google-url-pill {
+  display: flex; align-items: center; gap: 8px;
+  background: #f1f3f4; border-radius: 999px;
+  padding: 6px 14px; font-size: 0.78rem; color: #3c4043;
+}
+.google-url-pill i { color: #188038; font-size: 0.72rem; }
+.google-back-site-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: transparent; border: 1px solid #dadce0;
+  border-radius: 20px; padding: 6px 14px;
+  font-size: 0.8rem; font-weight: 500; color: #3c4043;
+}
+.google-back-site-btn:hover { background: #f1f3f4; }
+.google-card {
+  width: 100%; max-width: 450px;
+  background: #fff;
+  border-radius: 24px;
+  border: 1px solid #dadce0;
+  box-shadow: 0 12px 36px rgba(60, 64, 67, 0.14);
+  overflow: hidden;
+  margin-top: 32px;
+}
+.google-card-progress {
+  height: 4px; width: 100%;
+  background: #e8f0fe; overflow: hidden; display: none;
+}
+.google-card-progress.active { display: block; }
+.google-card-progress-bar {
+  height: 100%; width: 45%;
+  background: #1a73e8;
+  animation: google-progress 1.1s ease-in-out infinite;
+}
+@keyframes google-progress {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(260%); }
+}
+.google-card-header {
+  display: flex; align-items: center; gap: 10px;
+  padding: 18px 28px;
+  border-bottom: 1px solid #e8eaed;
+  font-size: 0.9rem; font-weight: 500; color: #5f6368;
+}
+.google-card-body { padding: 28px 28px 24px; }
+.google-app-badge {
+  width: 52px; height: 52px; border-radius: 12px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 12px var(--shadow);
+  overflow: hidden;
+  border: 2px solid var(--gold);
+}
+.google-app-badge img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.google-title { font-size: 1.5rem; font-weight: 500; color: #202124; margin-bottom: 6px; }
+.google-subtitle { font-size: 0.92rem; color: #5f6368; margin-bottom: 20px; }
+.google-subtitle strong { color: #1a73e8; font-weight: 600; }
+.google-account-list {
+  display: flex; flex-direction: column;
+  border-top: 1px solid #e8eaed;
+  margin: 0 -28px;
+}
+.google-account-row {
+  width: 100%; display: flex; align-items: center; gap: 14px;
+  padding: 14px 28px;
+  background: #fff; text-align: left;
+  border-bottom: 1px solid #e8eaed;
+  transition: background 0.18s ease;
+}
+.google-account-row:hover { background: #f8f9fa; }
+.google-avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 0.95rem; flex-shrink: 0;
+}
+.google-account-info { flex: 1; min-width: 0; }
+.google-account-name {
+  font-size: 0.9rem; font-weight: 600; color: #202124;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.google-account-email {
+  font-size: 0.8rem; color: #5f6368;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.google-account-tag { font-size: 0.72rem; color: #1a73e8; font-weight: 500; margin-top: 2px; }
+.google-use-another-icon {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: #f1f3f4; color: #5f6368;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.95rem; flex-shrink: 0;
+}
+.google-selected-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid #dadce0; border-radius: 999px;
+  padding: 5px 12px 5px 6px;
+  margin-bottom: 20px; background: #fff;
+  font-size: 0.84rem; color: #3c4043; font-weight: 500;
+}
+.google-consent-box {
+  background: #f8f9fa; border: 1px solid #e8eaed;
+  border-radius: 12px; padding: 14px 16px;
+  font-size: 0.82rem; color: #5f6368; line-height: 1.55;
+  margin-bottom: 22px;
+}
+.google-consent-box strong { color: #202124; }
+.google-field { margin-bottom: 16px; }
+.google-field label { display: block; font-size: 0.78rem; font-weight: 600; color: #3c4043; margin-bottom: 6px; }
+.google-input {
+  width: 100%; padding: 12px 14px;
+  border: 1.5px solid #dadce0; border-radius: 8px;
+  font-size: 0.92rem; color: #202124; background: #fff;
+}
+.google-input:focus { border-color: #1a73e8; }
+.google-actions {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin-top: 10px;
+}
+.google-btn-text {
+  background: transparent; color: #1a73e8;
+  font-size: 0.88rem; font-weight: 600;
+  padding: 10px 14px; border-radius: 8px;
+}
+.google-btn-text:hover { background: #e8f0fe; }
+.google-btn-primary {
+  background: #1a73e8; color: #fff;
+  font-size: 0.9rem; font-weight: 600;
+  padding: 10px 24px; border-radius: 8px;
+}
+.google-btn-primary:hover { background: #1765cc; box-shadow: 0 2px 8px rgba(26,115,232,0.35); }
+.google-footer-note { margin-top: 16px; font-size: 0.76rem; color: #5f6368; text-align: center; }
+
+/* ===== MY PROFILE UI (WEBSITE THEME) ===== */
+.profile-modal {
+  max-width: 680px;
+  padding: 0;
+  background: var(--warm-white);
+  border: 2px solid rgba(200, 150, 62, 0.35);
+}
+.profile-banner {
+  background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown) 55%, var(--gold-dark) 100%);
+  color: var(--cream);
+  padding: 32px 32px 24px;
+  position: relative;
+}
+.profile-banner .modal-close { background: rgba(255,255,255,0.16); color: var(--cream); }
+.profile-banner .modal-close:hover { background: rgba(255,255,255,0.28); color: #fff; }
+.profile-head-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.profile-avatar-circle {
+  width: 74px; height: 74px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--cream), #FFE8C2);
+  border: 3px solid var(--gold-light);
+  color: var(--brown);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem; font-weight: 900;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+.profile-identity { flex: 1; min-width: 200px; }
+.profile-identity h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.65rem; font-weight: 800; color: var(--cream);
+  line-height: 1.2; margin-bottom: 4px;
+}
+.profile-email-row {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 8px;
+  font-size: 0.86rem; color: rgba(255, 248, 240, 0.88);
+}
+.profile-provider-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(232, 184, 109, 0.5);
+  color: var(--gold-light);
+  font-size: 0.72rem; font-weight: 600;
+  padding: 3px 10px; border-radius: 999px;
+}
+.profile-stats-bar {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 10px; margin-top: 20px;
+}
+.profile-stat-box {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(232, 184, 109, 0.25);
+  border-radius: 14px; padding: 10px 12px;
+  text-align: center;
+}
+.profile-stat-box strong {
+  display: block; font-family: 'Playfair Display', serif;
+  font-size: 1.25rem; color: var(--gold-light);
+}
+.profile-stat-box span { font-size: 0.74rem; color: rgba(255, 248, 240, 0.78); }
+.profile-tabs {
+  display: flex; gap: 8px; padding: 16px 28px 0;
+  border-bottom: 1.5px solid rgba(200, 150, 62, 0.2);
+  background: var(--cream);
+  overflow-x: auto;
+}
+.profile-tab-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 10px 16px; border-radius: 12px 12px 0 0;
+  background: transparent; color: var(--text-light);
+  font-size: 0.86rem; font-weight: 600;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease; white-space: nowrap;
+}
+.profile-tab-btn:hover { color: var(--brown); }
+.profile-tab-btn.active {
+  color: var(--brown);
+  background: var(--warm-white);
+  border-bottom-color: var(--gold);
+}
+.profile-body { padding: 24px 28px 28px; }
+.profile-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.profile-form-grid .full { grid-column: 1 / -1; }
+.profile-gmail-card {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  flex-wrap: wrap;
+  background: var(--cream);
+  border: 1.5px solid rgba(200, 150, 62, 0.35);
+  border-radius: 14px; padding: 12px 16px;
+  margin-bottom: 18px;
+}
+.profile-gmail-meta { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--brown); }
+.btn-switch-gmail {
+  background: #fff; border: 1.5px solid var(--gold);
+  color: var(--gold-dark); font-size: 0.8rem; font-weight: 600;
+  padding: 7px 14px; border-radius: 20px;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.btn-switch-gmail:hover { background: var(--gold); color: #fff; }
+.profile-actions-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  flex-wrap: wrap; margin-top: 18px;
+}
+.btn-profile-signout {
+  background: rgba(160, 39, 26, 0.08);
+  color: var(--red);
+  border: 1.5px solid rgba(160, 39, 26, 0.25);
+  padding: 11px 18px; border-radius: 12px;
+  font-size: 0.88rem; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-profile-signout:hover { background: var(--red); color: #fff; }
+.profile-order-card {
+  background: #fff; border-radius: 16px;
+  border: 1px solid rgba(200, 150, 62, 0.25);
+  padding: 16px; margin-bottom: 14px;
+  box-shadow: 0 3px 12px var(--shadow);
+}
+.profile-order-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.profile-order-id { font-family: 'Playfair Display', serif; font-weight: 800; color: var(--brown); font-size: 1rem; }
+.profile-order-status { background: rgba(46,204,113,0.14); color: #1e8449; font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
+.profile-order-items { font-size: 0.84rem; color: var(--text-mid); margin-bottom: 10px; }
+.profile-order-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px dashed rgba(200,150,62,0.3); }
+.profile-wishlist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.profile-wish-card {
+  background: #fff; border-radius: 16px;
+  border: 1px solid rgba(200, 150, 62, 0.25);
+  padding: 14px; display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 2px 10px var(--shadow);
+}
+.profile-empty-state { text-align: center; padding: 36px 16px; color: var(--text-light); }
+.profile-empty-state span { font-size: 2.6rem; display: block; margin-bottom: 8px; }
+
+/* ===== TOAST ===== */
+#toast-container {
+  position: fixed; bottom: 24px; right: 24px;
+  z-index: 20000; display: flex; flex-direction: column; gap: 10px;
+}
+.toast {
+  background: white; border-radius: 14px;
+  padding: 14px 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  display: flex; align-items: center; gap: 12px;
+  min-width: 260px; max-width: 340px;
+  animation: toast-in 0.4s ease;
+  border-left: 4px solid var(--gold);
+}
+.toast.success { border-left-color: #2ecc71; }
+.toast.error { border-left-color: var(--red); }
+.toast i { font-size: 1.1rem; }
+.toast.success i { color: #2ecc71; }
+.toast.error i { color: var(--red); }
+.toast span { font-size: 0.88rem; color: var(--text-dark); font-weight: 500; }
+@keyframes toast-in {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ===== CART ===== */
+.cart-fab {
+  position: fixed; bottom: 28px; left: 28px;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brown), var(--gold-dark));
+  color: white; font-size: 1.3rem;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 25px var(--shadow-strong);
+  cursor: pointer; z-index: 1000;
+  transition: all 0.3s ease; border: none;
+  animation: cart-bounce 3s ease-in-out infinite;
+}
+.cart-fab:hover { transform: scale(1.1); box-shadow: 0 10px 35px var(--shadow-strong); }
+@keyframes cart-bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+.cart-badge {
+  position: absolute; top: -6px; right: -6px;
+  width: 22px; height: 22px;
+  background: var(--red); color: white;
+  font-size: 0.72rem; font-weight: 700;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid white;
+}
+.cart-panel {
+  position: fixed; right: 0; top: 0; bottom: 0;
+  width: 380px; max-width: 95vw;
+  background: white; z-index: 10001;
+  box-shadow: -10px 0 50px rgba(0,0,0,0.2);
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex; flex-direction: column;
+}
+.cart-panel.open { transform: translateX(0); }
+.cart-header {
+  padding: 24px; border-bottom: 1px solid rgba(200,150,62,0.2);
+  display: flex; align-items: center; justify-content: space-between;
+  background: linear-gradient(135deg, var(--brown), var(--brown-light));
+  color: white;
+}
+.cart-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem; font-weight: 700;
+}
+.cart-close-btn {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; color: white; cursor: pointer;
+  transition: all 0.2s; border: none;
+}
+.cart-close-btn:hover { background: rgba(255,255,255,0.3); transform: rotate(90deg); }
+.cart-items { flex: 1; overflow-y: auto; padding: 20px; }
+.cart-empty {
+  text-align: center; padding: 60px 20px;
+  color: var(--text-light);
+}
+.cart-empty i { font-size: 3.5rem; margin-bottom: 16px; color: var(--gold); opacity: 0.5; display: block; }
+.cart-empty p { font-size: 1rem; }
+.cart-item {
+  display: flex; gap: 14px;
+  padding: 14px 0; border-bottom: 1px solid rgba(0,0,0,0.07);
+  animation: fade-in-up 0.3s ease;
+}
+.cart-item-emoji { font-size: 2.5rem; flex-shrink: 0; }
+.cart-item-info { flex: 1; }
+.cart-item-name { font-weight: 600; font-size: 0.92rem; color: var(--brown); }
+.cart-item-price { font-size: 0.85rem; color: var(--gold-dark); font-weight: 600; }
+.cart-item-qty {
+  display: flex; align-items: center; gap: 10px;
+  margin-top: 8px;
+}
+.qty-btn {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--cream); border: 1.5px solid var(--gold);
+  color: var(--brown); font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 0.95rem;
+  transition: all 0.2s;
+}
+.qty-btn:hover { background: var(--gold); color: white; }
+.qty-val { font-weight: 700; min-width: 20px; text-align: center; color: var(--brown); }
+.cart-item-remove {
+  background: none; border: none; color: #ccc;
+  font-size: 1rem; cursor: pointer; align-self: flex-start;
+  transition: color 0.2s;
+}
+.cart-item-remove:hover { color: var(--red); }
+.cart-footer {
+  padding: 20px; border-top: 1px solid rgba(200,150,62,0.2);
+  background: var(--cream);
+}
+.cart-total {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 16px;
+}
+.cart-total span { font-size: 1rem; font-weight: 600; color: var(--text-mid); }
+.cart-total strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; color: var(--gold-dark);
+}
+.btn-checkout {
+  width: 100%; padding: 14px;
+  background: linear-gradient(135deg, var(--brown), var(--gold-dark));
+  color: white; font-size: 0.95rem; font-weight: 700;
+  border-radius: 12px; border: none; cursor: pointer;
+  transition: all 0.3s ease; font-family: 'Poppins', sans-serif;
+}
+.btn-checkout:hover {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(200,150,62,0.4);
+}
+
+/* ===== BACK TO TOP ===== */
+#back-top {
+  position: fixed; bottom: 100px; right: 24px;
+  width: 44px; height: 44px; border-radius: 12px;
+  background: white; border: 2px solid var(--gold);
+  color: var(--gold-dark); font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 1000;
+  box-shadow: 0 4px 15px var(--shadow);
+  transition: all 0.3s ease;
+  opacity: 0; visibility: hidden;
+}
+#back-top.show { opacity: 1; visibility: visible; }
+#back-top:hover {
+  background: var(--gold); color: white;
+  transform: translateY(-3px);
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.reveal {
+  opacity: 0; transform: translateY(40px);
+  transition: all 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: all 0.7s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(40px); transition: all 0.7s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* ===== USER MENU ===== */
+.user-dropdown {
+  position: absolute; top: calc(100% + 8px); right: 0;
+  min-width: 210px;
+  background: white; border-radius: 16px;
+  box-shadow: 0 15px 40px var(--shadow-strong);
+  padding: 10px; z-index: 1001;
+  opacity: 0; visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+.user-menu-wrap { position: relative; }
+.user-menu-wrap.open .user-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+.user-dropdown a, .user-dropdown button {
+  display: flex; align-items: center; gap: 10px;
+  width: 100%; padding: 10px 14px; border-radius: 10px;
+  font-size: 0.88rem; color: var(--text-mid);
+  transition: all 0.2s; background: none; border: none;
+  font-family: inherit; cursor: pointer; text-align: left;
+}
+.user-dropdown a:hover, .user-dropdown button:hover {
+  background: var(--cream); color: var(--brown);
+}
+.user-dropdown hr { border: none; border-top: 1px solid rgba(0,0,0,0.08); margin: 6px 0; }
+.user-dropdown .logout-btn { color: var(--red); }
+.user-dropdown .logout-btn:hover { background: rgba(160,39,26,0.08); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .mobile-menu { display: flex; }
+  .hero-content { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+  .hero-visual { order: -1; }
+  .hero-logo-circle { width: 220px; height: 220px; }
+  .hero-tags { justify-content: center; }
+  .hero-buttons { justify-content: center; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; gap: 30px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .section { padding: 60px 20px; }
+  .modal { padding: 28px 22px; }
+  .profile-modal { padding: 0; }
+  .profile-banner { padding: 24px 20px 20px; }
+  .profile-body { padding: 20px; }
+  .profile-tabs { padding: 12px 16px 0; }
+  .profile-form-grid { grid-template-columns: 1fr; }
+  .cart-panel { width: 100vw; }
+  .social-auth { flex-direction: column; }
+}
+@media (max-width: 480px) {
+  .hero-logo-circle { width: 190px; height: 190px; }
+  .hero-stat strong { font-size: 1.4rem; }
+  .products-grid { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .google-card-body { padding: 22px 20px; }
+  .google-account-list { margin: 0 -20px; }
+  .google-account-row { padding: 14px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo-wrap">
+    <img src="logo.jpg" onerror="this.onerror=null; this.src='d:/bake and barfi img.2.PNG';" class="loader-logo-img" alt="Bake and Barfi Logo" />
+  </div>
+  <div class="loader-text">From Pastries To Methai We Always Setisfy❤️</div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div id="toast-container"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <img src="logo.jpg" onerror="this.onerror=null; this.src='d:/bake and barfi img.2.PNG';" class="nav-logo-img" alt="Bake and Barfi Logo" />
+      <div class="nav-logo-text">
+        <strong>Bake and Barfi</strong>
+        <span>Freshly Baked Happiness ❤️</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#hero">Home</a>
+      <a href="#products">Our Menu</a>
+      <a href="#features">Why Us ? </a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-actions" id="navActions">
+      <button class="btn-login" onclick="openModal('login')">Sign In</button>
+      <button class="btn-order" onclick="openModal('login')">Order Now</button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" onclick="closeMenu()"><i class="fas fa-home"></i> Home</a>
+  <a href="#products" onclick="closeMenu()"><i class="fas fa-birthday-cake"></i> Our Menu</a>
+  <a href="#features" onclick="closeMenu()"><i class="fas fa-star"></i> Why Us</a>
+  <a href="#testimonials" onclick="closeMenu()"><i class="fas fa-comments"></i> Reviews</a>
+  <a href="#contact" onclick="closeMenu()"><i class="fas fa-phone"></i> Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="floating-shapes">
+    <div class="shape"></div><div class="shape"></div>
+    <div class="shape"></div><div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <div class="hero-ornament top-left">🌸</div>
+  <div class="hero-ornament bottom-right">🌸</div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge"><i class="fas fa-award"></i>Bakery & Sweet Shop</div>
+      <h1 class="hero-title">
+        <span class="cursive">From Pestries</span><br/>
+        <span class="accent">To Methai</span> We<br/>
+        Always Satisfy.
+      </h1>
+      <p class="hero-subtitle">
+        Welcome to <strong>Bake and Barfi</strong> — your destination for delicious cakes,
+        pure sweets & customised creations in Muzaffarpur. Quality you can taste, love in every layer.
+      </p>
+      <div class="hero-tags">
+        <div class="hero-tag"><i class="fas fa-birthday-cake"></i> Delicious Cakes</div>
+        <div class="hero-tag"><i class="fas fa-candy-cane"></i> Pure Sweets</div>
+        <div class="hero-tag"><i class="fas fa-paint-brush"></i> Custom Cakes</div>
+        <div class="hero-tag"><i class="fas fa-heart"></i> Made with Love</div>
+      </div>
+      <div class="hero-buttons">
+        <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+          <i class="fas fa-birthday-cake"></i> Explore Menu
+        </button>
+        <a href="https://wa.me/919608490373" target="_blank" class="btn-secondary">
+          <i class="fab fa-whatsapp"></i> Order on WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-logo-circle">
+        <img src="logo.jpg" onerror="this.onerror=null; this.src='D:/bake and barfi img.1.PNG';" class="hero-real-logo-img" alt="Bake and Barfi Official Logo" />
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>500+</strong><span>Happy Customers</span></div>
+      <div class="hero-stat"><strong>50+</strong><span>Menu Items</span></div>
+      <div class="hero-stat"><strong>5⭐</strong><span>Customer Rating</span></div>
+      <div class="hero-stat"><strong>3+</strong><span>Years of Trust</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track" id="marqueeTrack">
+    <div class="marquee-item"><i class="fas fa-birthday-cake"></i> Baked with Love</div>
+    <span class="marquee-dot">✦</span>
+    <div class="marquee-item"><i class="fas fa-candy-cane"></i> Pure Indian Sweets</div>
+    <span class="marquee-dot">✦</span>
+    <div class="marquee-item"><i class="fas fa-paint-brush"></i> Customised Cake Orders</div>
+    <span class="marquee-dot">✦</span>
+    <div class="marquee-item"><i class="fas fa-heart"></i> Customised Photo Cake</div>
+    <span class="marquee-dot">✦</span>
+    <div class="marquee-item"><i class="fas fa-phone"></i> Call: 9608490373</div>
+    <span class="marquee-dot">✦</span>
+    <div class="marquee-item"><i class="fas fa-map-marker-alt"></i> Muzaffarpur, Bihar</div>
+    <span class="marquee-dot">✦</span>
+    <div class="marquee-item"><i class="fab fa-whatsapp"></i> WhatsApp: 9608490373</div>
+    <span class="marquee-dot">✦</span>
+    <div class="marquee-item"><i class="fas fa-star"></i> Quality • Taste • Love</div>
+    <span class="marquee-dot">✦</span>
+    <div class="marquee-item"><i class="fas fa-birthday-cake"></i> Celebration Cakes</div>
+    <span class="marquee-dot">✦</span>
+    <div class="marquee-item"><i class="fas fa-candy-cane"></i> Pure Indian Sweets</div>
+    <span class="marquee-dot">✦</span>
+    <div class="marquee-item"><i class="fas fa-paint-brush"></i> Customised Orders</div>
+    <span class="marquee-dot">✦</span>
+    <div class="marquee-item"><i class="fas fa-heart"></i> Made Fresh Daily</div>
+    <span class="marquee-dot">✦</span>
+    <div class="marquee-item"><i class="fas fa-phone"></i> Call: 8405003153</div>
+    <span class="marquee-dot">✦</span>
+    <div class="marquee-item"><i class="fas fa-map-marker-alt"></i> Muzaffarpur 842002</div>
+    <span class="marquee-dot">✦</span>
+    <div class="marquee-item"><i class="fab fa-whatsapp"></i> WhatsApp: 9608490373</div>
+    <span class="marquee-dot">✦</span>
+    <div class="marquee-item"><i class="fas fa-star"></i> Quality • Taste • Love</div>
+    <span class="marquee-dot">✦</span>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="section" id="products">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-label">Our Menu</div>
+      <h2 class="section-title">Sweet <span class="accent">Delights</span> for Every Occasion</h2>
+      <p class="section-desc">From creamy celebration cakes to traditional Indian sweets — every item made fresh with the finest ingredients.</p>
+    </div>
+    <div class="product-tabs reveal">
+      <button class="tab-btn active" data-filter="all">All Items</button>
+      <button class="tab-btn" data-filter="cake">🎂 Cakes</button>
+      <button class="tab-btn" data-filter="sweet">🍬 Sweets</button>
+      <button class="tab-btn" data-filter="custom">🎨 Custom</button>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-label" style="color:var(--gold-light)">Why Choose Us</div>
+      <h2 class="section-title" style="color:var(--cream)">The <span style="color:var(--gold-light)">Bake and Barfi</span> Promise</h2>
+      <p class="section-desc" style="color:rgba(255,248,240,0.75)">We pour our heart into every creation — here's what sets us apart.</p>
+    </div>
+    <div class="features-grid" id="featuresGrid"></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-label">Customer Love</div>
+      <h2 class="section-title">What Our <span class="accent">Customers</span> Say</h2>
+      <p class="section-desc">Real reviews from our beloved customers who made us their go-to bakery in Muzaffarpur.</p>
+    </div>
+    <div class="testimonials-grid" id="testimonialsGrid"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-title">Visit or <span class="accent">Contact</span> Us</h2>
+      <p class="section-desc">We'd love to hear from you! Place custom orders, ask questions, or just say hello.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal-left">
+        <h3>Bake and Barfi 🎂</h3>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <div class="contact-label">Call Us</div>
+              <div class="contact-value"> 9608490373</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+            <div>
+              <div class="contact-label">WhatsApp</div>
+              <div class="contact-value">+91 96084 90373</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">bakeandbarfie@gmail.com</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <div class="contact-label">Location</div>
+              <div class="contact-value">Muzaffarpur, Bihar 842002</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-clock"></i></div>
+            <div>
+              <div class="contact-label">Open Hours</div>
+              <div class="contact-value">Mon–Sun: 8:00 AM – 10:00 PM</div>
+            </div>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="https://www.instagram.com/bakeandbarfi" target="_blank" class="social-link insta" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/919608490373" target="_blank" class="social-link wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://facebook.com" target="_blank" class="social-link fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="mailto:bakeandbarfie@gmail.com" class="social-link email" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="contact-form reveal-right">
+        <h3>✉️ Send a Message</h3>
+        <form id="contactForm" onsubmit="submitContact(event)">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" class="form-control" placeholder="e.g. Priya Sharma" required />
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX" />
+          </div>
+          <div class="form-group">
+            <label>Message / Order Details</label>
+            <textarea class="form-control" placeholder="Describe your cake or sweet requirements…" rows="4" required></textarea>
+          </div>
+          <div class="form-group">
+            <label>Order Type</label>
+            <select class="form-control">
+              <option value="">Select type…</option>
+              <option>🎂 Birthday Cake</option>
+              <option>💍 Wedding Cake</option>
+              <option>🎨 Custom Cake</option>
+              <option>🍬 Indian Sweets</option>
+              <option>📦 Bulk Order</option>
+              <option>❓ General Inquiry</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-text">🎂 Bake and Barfi</div>
+        <div class="tagline">From Pastries To Methai We Always Setisfy❤️</div>
+        <p>Your trusted bakery & sweet shop in Muzaffarpur, Bihar. Serving fresh cakes, traditional sweets, and customised creations made with love since day one.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="#products"><i class="fas fa-chevron-right"></i> Cakes</a></li>
+          <li><a href="#products"><i class="fas fa-chevron-right"></i> Indian Sweets</a></li>
+          <li><a href="#products"><i class="fas fa-chevron-right"></i> Barfi & Halwa</a></li>
+          <li><a href="#products"><i class="fas fa-chevron-right"></i> Custom Orders</a></li>
+          <li><a href="#products"><i class="fas fa-chevron-right"></i> Seasonal Specials</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#hero"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="#features"><i class="fas fa-chevron-right"></i> Why Us ? </a></li>
+          <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Reviews</a></li>
+          <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          <li><a href="https://wa.me/919608490373" target="_blank"><i class="fas fa-chevron-right"></i> Order Now</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:9608490373"><i class="fas fa-phone"></i> 9608490373</a></li>
+          <li><a href="https://wa.me/919608490373" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+          <li><a href="mailto:vaishalifoodpalace@gmail.com"><i class="fas fa-envelope"></i> Email Us</a></li>
+          <li><a href="#"><i class="fas fa-map-marker-alt"></i> Muzaffarpur 842002</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p>© 2024 <span>Bake and Barfi</span>. All rights reserved. Made with ❤️ in Muzaffarpur.</p>
+      <p>Follow us: <a href="https://www.instagram.com/bakeandbarfi" target="_blank" style="color:var(--gold-light);"><i class="fab fa-instagram"></i> @bakeandbarfi</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- CART FAB -->
+<button class="cart-fab" onclick="toggleCart()" aria-label="Cart">
+  <i class="fas fa-shopping-basket"></i>
+  <span class="cart-badge" id="cartBadge">0</span>
+</button>
+
+<!-- BACK TO TOP -->
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<!-- CART PANEL -->
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-header">
+    <h3>🛒 Your Cart</h3>
+    <button class="cart-close-btn" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <i class="fas fa-shopping-basket"></i>
+      <p>Your cart is empty.<br/>Add some sweet treats!</p>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total</span>
+      <strong id="cartTotal">₹0</strong>
+    </div>
+    <button class="btn-checkout" onclick="checkout()">
+      <i class="fas fa-check-circle"></i> Proceed to Checkout
+    </button>
+  </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('login')"><i class="fas fa-times"></i></button>
+    <div class="modal-header">
+      <img src="logo.jpg" onerror="this.onerror=null; this.src='D:/bake and barfi img.1.PNG';" class="modal-logo-img" alt="Bake and Barfi Logo" />
+      <h2>Welcome</h2>
+      <p>Sign in to your Bake and Barfi account</p>
+    </div>
+    
+    <!-- Official Google One-Tap / Auto Sign-In Container -->
+    <div id="g_id_onload"
+         data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
+         data-callback="handleOfficialGoogleCredential"
+         data-auto_prompt="true">
+    </div>
+    <div id="g_id_signin_login" class="google-onetap-box"></div>
+
+    <div class="social-auth">
+      <button class="social-auth-btn google" onclick="openGoogleAuth()">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        Continue with Google
+      </button> 
+      <button class="social-auth-btn facebook" onclick="socialLogin('facebook')">
+        <i class="fab fa-facebook-f" style="color:#1877F2;font-size:1rem;"></i>
+        Facebook
+      </button>
+    </div>
+    <div class="auth-divider"><span>or sign in with email</span></div>
+    <form class="auth-form" id="loginForm" onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <label>Email</label> 
+        <div class="auth-input-wrap">
+          <i class="fas fa-envelope"></i>
+          <input type="email" class="auth-input" id="loginEmail" placeholder="your@email.com" required />
+        </div>
+        <p class="input-err-msg" id="loginEmailErr">Please enter a valid email.</p>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <div class="auth-input-wrap">
+          <i class="fas fa-lock"></i>
+          <input type="password" class="auth-input" id="loginPass" placeholder="••••••••" />
+          <button type="button" class="show-pass-btn" onclick="togglePass('loginPass',this)"><i class="fas fa-eye"></i></button>
+        </div>
+        <p class="input-err-msg" id="loginPassErr">Incorrect password.</p>
+      </div>
+      <div class="auth-opts">
+        <label class="check-label">
+          <input type="checkbox" id="rememberMe" checked /> Remember me
+        </label>
+        <button type="button" class="forgot-link" onclick="openModal('forgot')">Forgot Password?</button>
+      </div>
+      <button type="submit" class="btn-auth"><span>Sign In</span></button>
+      <button type="button" class="btn-gmail-direct" onclick="continueWithEmailToGoogle()">
+        <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        <span>Continue with Email (Select Gmail)</span>
+      </button>
+    </form>
+    <div class="auth-switch">
+      Don't have an account? <button onclick="openModal('register')">Create Account</button>
+    </div>
+  </div>
+</div>
+
+<!-- REGISTER MODAL -->
+<div class="modal-overlay" id="registerModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('register')"><i class="fas fa-times"></i></button>
+    <div class="modal-header">
+      <img src="logo.jpg" onerror="this.onerror=null; this.src='D:/bake and barfi img.1.PNG';" class="modal-logo-img" alt="Bake and Barfi Logo" />
+      <h2>Create Account</h2>
+      <p>Join the Bake and Barfi family!</p>
+    </div>
+    <div class="social-auth">
+      <button class="social-auth-btn google" onclick="openGoogleAuth()">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        Continue with Google
+      </button>
+      <button class="social-auth-btn facebook" onclick="socialLogin('facebook')">
+        <i class="fab fa-facebook-f" style="color:#1877F2;font-size:1rem;"></i>
+        Facebook
+      </button>
+    </div>
+    <div class="auth-divider"><span>or register with email</span></div>
+    <form class="auth-form" id="registerForm" onsubmit="handleRegister(event)">
+      <div class="form-group">
+        <label>Full Name</label>
+        <div class="auth-input-wrap">
+          <i class="fas fa-user"></i>
+          <input type="text" class="auth-input" id="regName" placeholder="Your full name" required />
+        </div>
+        <p class="input-err-msg" id="regNameErr">Please enter your name.</p>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <div class="auth-input-wrap">
+          <i class="fas fa-envelope"></i>
+          <input type="email" class="auth-input" id="regEmail" placeholder="your@email.com" required />
+        </div>
+        <p class="input-err-msg" id="regEmailErr">Email already registered.</p>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <div class="auth-input-wrap">
+          <i class="fas fa-phone"></i>
+          <input type="tel" class="auth-input" id="regPhone" placeholder="+91 XXXXX XXXXX" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <div class="auth-input-wrap">
+          <i class="fas fa-lock"></i>
+          <input type="password" class="auth-input" id="regPass" placeholder="Min 6 characters" required minlength="6" />
+          <button type="button" class="show-pass-btn" onclick="togglePass('regPass',this)"><i class="fas fa-eye"></i></button>
+        </div>
+        <p class="input-err-msg" id="regPassErr">Password must be at least 6 characters.</p>
+      </div>
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <div class="auth-input-wrap">
+          <i class="fas fa-lock"></i>
+          <input type="password" class="auth-input" id="regPassConfirm" placeholder="Re-enter password" required />
+          <button type="button" class="show-pass-btn" onclick="togglePass('regPassConfirm',this)"><i class="fas fa-eye"></i></button>
+        </div>
+        <p class="input-err-msg" id="regPassConfirmErr">Passwords do not match.</p>
+      </div>
+      <div class="auth-opts">
+        <label class="check-label">
+          <input type="checkbox" id="agreeTerms" required /> I agree to the <span style="color:var(--gold-dark);font-weight:600;cursor:pointer;">Terms & Conditions</span>
+        </label>
+      </div>
+      <button type="submit" class="btn-auth"><span>Create Account</span></button>
+    </form>
+    <div class="auth-switch">
+      Already have an account? <button onclick="openModal('login')">Sign In</button>
+    </div>
+  </div>
+</div>
+
+<!-- FORGOT PASSWORD MODAL -->
+<div class="modal-overlay" id="forgotModal">
+  <div class="modal" style="max-width:400px;">
+    <button class="modal-close" onclick="closeModal('forgot')"><i class="fas fa-times"></i></button>
+    <div class="modal-header">
+      <div class="modal-logo">🔑</div>
+      <h2>Reset Password</h2>
+      <p>Enter your email and we'll help you reset it.</p>
+    </div>
+    <form class="auth-form" onsubmit="handleForgot(event)">
+      <div class="form-group">
+        <label>Email</label>
+        <div class="auth-input-wrap">
+          <i class="fas fa-envelope"></i>
+          <input type="email" class="auth-input" id="forgotEmail" placeholder="your@email.com" required />
+        </div>
+      </div>
+      <button type="submit" class="btn-auth"><span><i class="fas fa-paper-plane"></i> Send Reset Link</span></button>
+    </form>
+    <div class="auth-switch" style="margin-top:16px;">
+      <button onclick="openModal('login')">← Back to Sign In</button>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL LOGIN MODAL (FACEBOOK) -->
+<div class="modal-overlay" id="socialModal">
+  <div class="modal" style="max-width:420px;">
+    <button class="modal-close" onclick="closeModal('social')"><i class="fas fa-times"></i></button>
+    <div class="modal-header">
+      <div class="modal-logo" id="socialModalIcon">📘</div>
+      <h2 id="socialModalTitle">Continue with Facebook</h2>
+      <p id="socialModalDesc">Complete your profile to continue with Facebook</p>
+    </div>
+    <form class="auth-form" id="socialLoginForm" onsubmit="completeSocialLogin(event)">
+      <div class="form-group">
+        <label>Full Name</label>
+        <div class="auth-input-wrap">
+          <i class="fas fa-user"></i>
+          <input type="text" class="auth-input" id="socialName" placeholder="Your name" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <div class="auth-input-wrap">
+          <i class="fas fa-envelope"></i>
+          <input type="email" class="auth-input" id="socialEmail" placeholder="your@email.com" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Phone (optional)</label>
+        <div class="auth-input-wrap">
+          <i class="fas fa-phone"></i>
+          <input type="tel" class="auth-input" id="socialPhone" placeholder="+91 XXXXX XXXXX" />
+        </div>
+      </div>
+      <button type="submit" class="btn-auth"><span id="socialSubmitText">Continue with Facebook</span></button>
+    </form>
+  </div>
+</div>
+
+<!-- GOOGLE SIGN-IN ACCOUNT CHOOSER INTERFACE -->
+<div class="google-auth-overlay" id="googleAuthOverlay" role="dialog" aria-modal="true" aria-label="Sign in with Google">
+  <div class="google-topbar">
+    <div class="google-url-pill">
+      <i class="fas fa-lock"></i>
+      <span>accounts.google.com/o/oauth2/v2/auth</span>
+    </div>
+    <button type="button" class="google-back-site-btn" onclick="closeGoogleAuth()">
+      <i class="fas fa-arrow-left"></i> Back to Bake and Barfi
+    </button>
+  </div>
+
+  <div class="google-card">
+    <div class="google-card-progress" id="googleProgressBar">
+      <div class="google-card-progress-bar"></div>
+    </div>
+    <div class="google-card-header">
+      <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+      <span>Sign in with Google</span>
+    </div>
+    <div class="google-card-body">
+      <div class="google-app-badge">
+        <img src="logo.jpg" onerror="this.onerror=null; this.src='D:/bake and barfi img.1.PNG';" alt="Bake and Barfi Logo" />
+      </div>
+      <div id="googleCardContent"></div>
+      <p class="google-footer-note">
+        You can manage your profile &amp; linked Gmail anytime in <strong>My Profile</strong>.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- MY PROFILE UI MODAL (WEBSITE THEME) -->
+<div class="modal-overlay" id="profileModal">
+  <div class="modal profile-modal">
+    <div id="profileModalContent"></div>
+  </div>
+</div>
+
+<script>
+/* ===================================================================
+   BAKE AND BARFI – COMPLETE WEBSITE JAVASCRIPT
+   =================================================================== */
+
+/* Optional: Replace with your Google Cloud OAuth Client ID for production */
+const GOOGLE_CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com';
+
+/* ---------- DATA ---------- */
+const PRODUCTS = [
+  { id:1, name:'Black Forest Cake', category:'cake', emoji:'🎂', price:450, desc:'Rich dark chocolate sponge with cherries & whipped cream.', badge:'Popular', badgeType:'popular' },
+  { id:2, name:'Butterscotch Cake', category:'cake', emoji:'🍰', price:380, desc:'Smooth butterscotch cream with crunchy brittle topping.', badge:'', badgeType:'' },
+  { id:3, name:'Red Velvet Cake', category:'cake', emoji:'🍮', price:520, desc:'Velvety red sponge with luscious cream cheese frosting.', badge:'New', badgeType:'new' },
+  { id:4, name:'Pineapple Cake', category:'cake', emoji:'🍍', price:350, desc:'Light vanilla sponge layered with fresh pineapple cream.', badge:'', badgeType:'' },
+  { id:5, name:'Chocolate Truffle Cake', category:'cake', emoji:'🍫', price:480, desc:'Decadent truffle ganache with chocolate shavings.', badge:'Popular', badgeType:'popular' },
+  { id:6, name:'Mango Delight Cake', category:'cake', emoji:'🥭', price:420, desc:'Fresh mango pulp with creamy layers — a summer favourite!', badge:'Seasonal', badgeType:'popular' },
+  { id:7, name:'Kaju Katli', category:'sweet', emoji:'🍬', price:800, desc:'Pure cashew nut fudge with silver vark — melts in your mouth.', badge:'Premium', badgeType:'popular' },
+  { id:8, name:'Gulab Jamun (500g)', category:'sweet', emoji:'🟤', price:200, desc:'Soft dumplings soaked in rose-flavoured sugar syrup.', badge:'', badgeType:'' },
+  { id:9, name:'Rasgulla (1 kg)', category:'sweet', emoji:'⚪', price:300, desc:'Soft, spongy cottage cheese balls in light sugar syrup.', badge:'', badgeType:'' },
+  { id:10, name:'Besan Ladoo', category:'sweet', emoji:'🟡', price:280, desc:'Traditional roasted gram flour ladoos with ghee & cardamom.', badge:'', badgeType:'' },
+  { id:11, name:'Kalakand', category:'sweet', emoji:'🧁', price:350, desc:'Crumbly milk cake with saffron & pistachios — irresistible!', badge:'Popular', badgeType:'popular' },
+  { id:12, name:'Mixed Barfi Box', category:'sweet', emoji:'🍭', price:600, desc:'Assorted barfi box — kaju, coconut, badam & pista. Perfect for gifting.', badge:'Gift', badgeType:'new' },
+  { id:13, name:'Custom Birthday Cake', category:'custom', emoji:'🎉', price:800, desc:'Fully personalized cake — your design, your message, your size!', badge:'Custom', badgeType:'popular' },
+  { id:14, name:'Wedding Cake (Tiered)', category:'custom', emoji:'💍', price:5000, desc:'Elegant multi-tiered wedding cakes designed to your vision.', badge:'Luxury', badgeType:'popular' },
+  { id:15, name:'Photo Print Cake', category:'custom', emoji:'📸', price:600, desc:'Edible photo print on a creamy cake — a memory on a plate!', badge:'Trending', badgeType:'new' },
+  { id:16, name:'Theme Cake', category:'custom', emoji:'🦸', price:900, desc:'Character or theme cakes for kids & adults — made to delight!', badge:'Fun', badgeType:'new' },
+];
+
+const FEATURES = [
+  { icon:'🌿', title:'100% Fresh Ingredients', desc:'We use only the finest, freshest ingredients sourced daily to ensure every bite is delicious and healthy.' },
+  { icon:'🎨', title:'Custom Designs', desc:'Tell us your dream cake — we bring it to life with artistic precision and sweet creativity.' },
+  { icon:'⚡', title:'Same Day Delivery', desc:'Need it fast? We offer same-day delivery within Muzaffarpur for select orders placed before noon.' },
+  { icon:'💝', title:'Made with Love', desc:'Every piece is baked fresh by our passionate team who treats every order like a gift for a loved one.' },
+  { icon:'🏆', title:'Award-Winning Quality', desc:'Years of baking excellence have earned us the trust and love of hundreds of families in Muzaffarpur.' },
+  { icon:'📱', title:'Easy Online Orders', desc:'WhatsApp us anytime to place orders, get price quotes, and track your delivery status instantly.' },
+  { icon:'🎁', title:'Gift Packaging', desc:'Beautiful gift-ready packaging available for all sweets and cakes — perfect for every occasion.' },
+  { icon:'🕐', title:'Timely Service', desc:'We respect your time and ensure orders are ready exactly when you need them — no delays, ever.' },
+];
+
+const TESTIMONIALS = [
+  { name:'Priya Sharma', loc:'Muzaffarpur', stars:5, text:'The black forest cake from Bake and Barfi was absolutely divine! Everyone at the party loved it. Will definitely order again for my next event.' },
+  { name:'Rohit Kumar', loc:'Muzaffarpur', stars:5, text:'Ordered kaju katli for Diwali — the quality was phenomenal! Pure taste, perfect texture. Best sweets in Muzaffarpur without a doubt.' },
+  { name:'Sunita Devi', loc:'Muzaffarpur', stars:5, text:'Got a custom theme cake made for my son\'s birthday. The team was so creative and professional. My son was over the moon! Thank you!' },
+  { name:'Amit Jha', loc:'Muzaffarpur', stars:5, text:'Rasgulla and gulab jamun are out of this world. Reminds me of my grandmother\'s homemade sweets. Such authentic flavours!' },
+  { name:'Meera Verma', loc:'Muzaffarpur', stars:5, text:'Wedding cake was breathtaking! So beautifully designed and tasted even better than it looked. Highly recommended for all events.' },
+  { name:'Deepak Pandey', loc:'Muzaffarpur', stars:5, text:'Prompt delivery, beautiful packaging, and outstanding taste. This is my go-to bakery for all celebrations now. Keep it up!' },
+];
+
+const DEFAULT_GMAIL_ACCOUNTS = [
+  { email:'adityajha2042@gmail.com', name:'Aditya Jha', avatarColor:'#1a73e8', tag:'Signed in on Chrome' },
+  { email:'priya.sharma.mzp@gmail.com', name:'Priya Sharma', avatarColor:'#0f9d58' },
+  { email:'rohit.kumar.bake@gmail.com', name:'Rohit Kumar', avatarColor:'#d93025' },
+];
+const AVATAR_COLORS = ['#1a73e8', '#0f9d58', '#d93025', '#9334e6', '#e37400'];
+
+/* ---------- STATE ---------- */
+let cart = JSON.parse(localStorage.getItem('bb_cart') || '[]');
+let currentUser = JSON.parse(localStorage.getItem('bb_current_user') || 'null');
+let wishlistIds = JSON.parse(localStorage.getItem('bb_wishlist') || '[]');
+let activeFilter = 'all';
+let activeProfileTab = 'profile';
+let selectedGoogleAccount = null;
+
+/* ---------- LOADER ---------- */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hide');
+    renderAll();
+    checkLoggedIn();
+    initObserver();
+    initOfficialGoogleAuth();
+  }, 2200);
+});
+
+/* ---------- OFFICIAL GOOGLE ONE-TAP & SIGN-IN ---------- */
+function initOfficialGoogleAuth() {
+  if (typeof google !== 'undefined' && google.accounts && google.accounts.id) {
+    try {
+      google.accounts.id.initialize({
+        client_id: GOOGLE_CLIENT_ID,
+        callback: handleOfficialGoogleCredential,
+        auto_select: false,
+        cancel_on_tap_outside: true
+      });
+      /* Trigger Auto One-Tap Prompt */
+      if (!currentUser && !GOOGLE_CLIENT_ID.startsWith('YOUR_')) {
+        google.accounts.id.prompt();
+      }
+    } catch (e) {
+      console.log('Google Auth initialized in demo/chooser mode.');
+    }
+  }
+}
+
+function handleOfficialGoogleCredential(response) {
+  try {
+    const base64Url = response.credential.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+    const p = JSON.parse(jsonPayload);
+    
+    const user = {
+      id: Date.now(),
+      name: p.name || 'Google User',
+      email: p.email,
+      phone: '',
+      address: '',
+      birthday: '',
+      password: '',
+      provider: 'google',
+      avatarColor: '#1a73e8',
+      createdAt: new Date().toISOString(),
+      orders: []
+    };
+    const users = getUsers();
+    const idx = users.findIndex(u => u.email === user.email);
+    if (idx >= 0) users[idx] = user; else users.push(user);
+    saveUsers(users);
+    localStorage.setItem('bb_remember', JSON.stringify(user));
+    setCurrentUser(user);
+    closeModal('login'); closeModal('register'); closeGoogleAuth();
+    showToast(`Signed in as ${user.name}! 🎂`, 'success');
+  } catch (err) {
+    showToast('Signed in with Google!', 'success');
+  }
+}
+
+/* ---------- RENDER ALL ---------- */
+function renderAll() {
+  renderProducts('all');
+  renderFeatures();
+  renderTestimonials();
+  updateCartUI();
+}
+
+/* ---------- PRODUCTS ---------- */
+function renderProducts(filter) {
+  activeFilter = filter;
+  const grid = document.getElementById('productsGrid');
+  const items = filter === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === filter);
+  grid.innerHTML = items.map((p, i) => `
+    <div class="product-card" style="animation-delay:${i * 0.08}s;" data-id="${p.id}">
+      <div class="product-img-wrap">
+        <span class="product-emoji">${p.emoji}</span>
+        ${p.badge ? `<span class="product-badge ${p.badgeType}">${p.badge}</span>` : ''}
+        <div class="product-fav ${wishlistIds.includes(p.id) ? 'active' : ''}" onclick="toggleFav(${p.id}, this)" title="Add to wishlist">
+          <i class="fas fa-heart"></i>
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">${p.name}</div>
+        <div class="product-desc">${p.desc}</div>
+        <div class="product-footer">
+          <div class="product-price">₹${p.price}<span> / piece</span></div>
+          <button class="btn-add-cart" onclick="addToCart(${p.id})">
+            <i class="fas fa-plus"></i> Add
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  grid.querySelectorAll('.product-card').forEach((card, i) => {
+    setTimeout(() => card.style.opacity = '1', i * 80);
+  });
+}
+
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    renderProducts(this.dataset.filter);
+  });
+});
+
+function toggleFav(id, el) {
+  const exists = wishlistIds.includes(id);
+  if (exists) {
+    wishlistIds = wishlistIds.filter(item => item !== id);
+    if (el) el.classList.remove('active');
+    showToast('Removed from wishlist.', 'info');
+  } else {
+    wishlistIds.push(id);
+    if (el) {
+      el.classList.add('active');
+      el.style.transform = 'scale(1.4)';
+      setTimeout(() => el.style.transform = '', 400);
+    }
+    showToast('Added to wishlist! ❤️', 'success');
+  }
+  localStorage.setItem('bb_wishlist', JSON.stringify(wishlistIds));
+}
+
+/* ---------- FEATURES ---------- */
+function renderFeatures() {
+  document.getElementById('featuresGrid').innerHTML = FEATURES.map((f, i) => `
+    <div class="feature-card reveal" style="transition-delay:${i * 0.1}s;">
+      <div class="feature-icon">${f.icon}</div>
+      <div class="feature-title">${f.title}</div>
+      <div class="feature-desc">${f.desc}</div>
+    </div>
+  `).join('');
+}
+
+/* ---------- TESTIMONIALS ---------- */
+function renderTestimonials() {
+  document.getElementById('testimonialsGrid').innerHTML = TESTIMONIALS.map((t, i) => `
+    <div class="testimonial-card reveal" style="transition-delay:${i * 0.1}s;">
+      <div class="testimonial-stars">${'⭐'.repeat(t.stars)}</div>
+      <div class="testimonial-text">"${t.text}"</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">${t.name[0]}</div>
+        <div>
+          <div class="author-name">${t.name}</div>
+          <div class="author-loc">📍 ${t.loc}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ---------- SCROLL OBSERVER ---------- */
+function initObserver() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => obs.observe(el));
+}
+
+/* ---------- NAVBAR ---------- */
+window.addEventListener('scroll', () => {
+  const navbar = document.getElementById('navbar');
+  const backTop = document.getElementById('back-top');
+  if (window.scrollY > 60) { navbar.classList.add('scrolled'); backTop.classList.add('show'); }
+  else { navbar.classList.remove('scrolled'); backTop.classList.remove('show'); }
+});
+
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+navToggle.addEventListener('click', () => {
+  navToggle.classList.toggle('active');
+  mobileMenu.style.display = 'flex';
+  setTimeout(() => mobileMenu.classList.toggle('open'), 10);
+  if (!mobileMenu.classList.contains('open')) {
+    setTimeout(() => { if (!mobileMenu.classList.contains('open')) mobileMenu.style.display = 'none'; }, 300);
+  }
+});
+
+function closeMenu() {
+  navToggle.classList.remove('active');
+  mobileMenu.classList.remove('open');
+  setTimeout(() => mobileMenu.style.display = 'none', 300);
+}
+
+document.addEventListener('click', (e) => {
+  if (!mobileMenu.contains(e.target) && !navToggle.contains(e.target)) {
+    if (mobileMenu.classList.contains('open')) closeMenu();
+  }
+});
+
+/* ---------- CART ---------- */
+function saveCart() { localStorage.setItem('bb_cart', JSON.stringify(cart)); }
+
+function addToCart(id) {
+  const product = PRODUCTS.find(p => p.id === id);
+  if (!product) return;
+  const existing = cart.find(i => i.id === id);
+  if (existing) { existing.qty++; }
+  else { cart.push({ ...product, qty: 1 }); }
+  saveCart();
+  updateCartUI();
+  showToast(`${product.emoji} ${product.name} added to cart!`, 'success');
+  animateCartBadge();
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(i => i.id !== id);
+  saveCart();
+  updateCartUI();
+}
+
+function changeQty(id, delta) {
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) removeFromCart(id);
+  else { saveCart(); updateCartUI(); }
+}
+
+function updateCartUI() {
+  const total = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
+  const count = cart.reduce((sum, i) => sum + i.qty, 0);
+  document.getElementById('cartBadge').textContent = count;
+  document.getElementById('cartTotal').textContent = `₹${total}`;
+  const cartItemsEl = document.getElementById('cartItems');
+  if (cart.length === 0) {
+    cartItemsEl.innerHTML = `<div class="cart-empty"><i class="fas fa-shopping-basket"></i><p>Your cart is empty.<br/>Add some sweet treats!</p></div>`;
+  } else {
+    cartItemsEl.innerHTML = cart.map(i => `
+      <div class="cart-item">
+        <div class="cart-item-emoji">${i.emoji}</div>
+        <div class="cart-item-info">
+          <div class="cart-item-name">${i.name}</div>
+          <div class="cart-item-price">₹${i.price} each</div>
+          <div class="cart-item-qty">
+            <button class="qty-btn" onclick="changeQty(${i.id},-1)">−</button>
+            <span class="qty-val">${i.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${i.id},1)">+</button>
+          </div>
+        </div>
+        <button class="cart-item-remove" onclick="removeFromCart(${i.id})"><i class="fas fa-trash-alt"></i></button>
+      </div>
+    `).join('');
+  }
+}
+
+function toggleCart() { document.getElementById('cartPanel').classList.toggle('open'); }
+
+function animateCartBadge() {
+  const badge = document.getElementById('cartBadge');
+  badge.style.transform = 'scale(1.5)';
+  setTimeout(() => badge.style.transform = '', 300);
+}
+
+function checkout() {
+  if (!currentUser) {
+    showToast('Please sign in to checkout!', 'error');
+    closeCart();
+    setTimeout(() => openModal('login'), 400);
+    return;
+  }
+  if (cart.length === 0) { showToast('Your cart is empty!', 'error'); return; }
+  const total = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
+
+  const order = {
+    id: 'BB-' + String(Date.now()).slice(-6),
+    createdAt: new Date().toISOString(),
+    items: cart.map(i => ({ id: i.id, name: i.name, emoji: i.emoji, price: i.price, qty: i.qty })),
+    total,
+    status: 'Sent via WhatsApp'
+  };
+  currentUser.orders = [order, ...(currentUser.orders || [])];
+  const users = getUsers();
+  const idx = users.findIndex(u => u.email === currentUser.email);
+  if (idx >= 0) users[idx] = currentUser;
+  else users.push(currentUser);
+  saveUsers(users);
+  setCurrentUser(currentUser);
+
+  const waMsg = encodeURIComponent(
+    `🎂 *New Order from Bake and Barfi Website*\n\nName: ${currentUser.name}\nPhone: ${currentUser.phone || 'N/A'}\n\n*Order Details:*\n${cart.map(i => `• ${i.name} × ${i.qty} = ₹${i.price * i.qty}`).join('\n')}\n\n*Total: ₹${total}*\n\nPlease confirm my order. Thank you!`
+  );
+  window.open(`https://wa.me/919608490373?text=${waMsg}`, '_blank');
+  cart = []; saveCart(); updateCartUI();
+  toggleCart();
+  showToast('Order sent via WhatsApp! 🎉', 'success');
+}
+
+function closeCart() { document.getElementById('cartPanel').classList.remove('open'); }
+
+/* ---------- MODALS ---------- */
+function openModal(type) {
+  ['login', 'register', 'forgot', 'social', 'profile'].forEach(t => {
+    const el = document.getElementById(`${t}Modal`);
+    if (el) el.classList.remove('open');
+  });
+  const modalMap = { login:'loginModal', register:'registerModal', forgot:'forgotModal', social:'socialModal', profile:'profileModal' };
+  const el = document.getElementById(modalMap[type]);
+  if (!el) return;
+  el.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(type) {
+  const modalMap = { login:'loginModal', register:'registerModal', forgot:'forgotModal', social:'socialModal', profile:'profileModal' };
+  const el = document.getElementById(modalMap[type]);
+  if (!el) return;
+  el.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open').forEach(o => o.classList.remove('open'));
+    closeGoogleAuth();
+    document.body.style.overflow = '';
+  }
+});
+
+/* ---------- AUTH HELPERS ---------- */
+function getUsers() { return JSON.parse(localStorage.getItem('bb_users') || '[]'); }
+function saveUsers(users) { localStorage.setItem('bb_users', JSON.stringify(users)); }
+
+function getGmailAccounts() {
+  const saved = JSON.parse(localStorage.getItem('bb_gmail_accounts') || '[]');
+  const merged = [...DEFAULT_GMAIL_ACCOUNTS];
+  saved.forEach(acc => {
+    if (!merged.some(m => m.email === acc.email)) merged.push(acc);
+  });
+  return merged;
+}
+
+function saveGmailAccount(acc) {
+  const accounts = getGmailAccounts();
+  if (!accounts.some(a => a.email === acc.email)) {
+    accounts.unshift(acc);
+    localStorage.setItem('bb_gmail_accounts', JSON.stringify(accounts));
+  }
+}
+
+function deriveNameFromEmail(email) {
+  const local = (email.split('@')[0] || 'Guest').replace(/[._-]+/g, ' ').replace(/\d+/g, ' ').trim();
+  if (!local) return 'Bakery Guest';
+  return local.split(/\s+/).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+}
+
+function getInitials(name) {
+  const parts = (name || '').trim().split(/\s+/).filter(Boolean);
+  if (!parts.length) return 'U';
+  if (parts.length === 1) return parts[0][0].toUpperCase();
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((email || '').trim().toLowerCase());
+}
+
+function isGmail(email) {
+  const norm = (email || '').trim().toLowerCase();
+  return norm.endsWith('@gmail.com') || norm.endsWith('@googlemail.com');
+}
+
+function setCurrentUser(user) {
+  currentUser = user;
+  localStorage.setItem('bb_current_user', JSON.stringify(user));
+  updateNavUser();
+}
+
+function updateNavUser() {
+  const actionsEl = document.getElementById('navActions');
+  if (currentUser) {
+    actionsEl.innerHTML = `
+      <div class="user-menu-wrap" id="userMenuWrap">
+        <div class="nav-user" onclick="toggleUserMenu()">
+          <i class="fas fa-user-circle"></i>
+          <span>${currentUser.name.split(' ')[0]}</span>
+          <i class="fas fa-chevron-down" style="font-size:0.7rem;"></i>
+        </div>
+        <div class="user-dropdown">
+          <button type="button" onclick="openProfileModal('profile')"><i class="fas fa-user"></i> My Profile</button>
+          <button type="button" onclick="openProfileModal('orders')"><i class="fas fa-shopping-bag"></i> My Orders</button>
+          <button type="button" onclick="openProfileModal('wishlist')"><i class="fas fa-heart"></i> Wishlist</button>
+          <hr/>
+          <button type="button" class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+        </div>
+      </div>
+    `;
+  } else {
+    actionsEl.innerHTML = `
+      <button class="btn-login" onclick="openModal('login')">Sign In</button>
+      <button class="btn-order" onclick="openModal('login')">Order Now</button>
+    `;
+  }
+}
+
+function toggleUserMenu() {
+  const wrap = document.getElementById('userMenuWrap');
+  if (wrap) wrap.classList.toggle('open');
+}
+
+document.addEventListener('click', (e) => {
+  const wrap = document.getElementById('userMenuWrap');
+  if (wrap && !wrap.contains(e.target)) wrap.classList.remove('open');
+});
+
+function checkLoggedIn() {
+  const remembered = localStorage.getItem('bb_remember');
+  if (remembered) {
+    const user = JSON.parse(remembered);
+    setCurrentUser(user);
+  } else if (currentUser) {
+    updateNavUser();
+  }
+}
+
+/* ---------- LOGIN ---------- */
+function handleLogin(e) {
+  e.preventDefault();
+  const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+  const pass = document.getElementById('loginPass').value;
+  const remember = document.getElementById('rememberMe').checked;
+
+  clearErrors('loginEmail', 'loginEmailErr', 'loginPass', 'loginPassErr');
+
+  const users = getUsers();
+  const user = users.find(u => u.email === email);
+
+  if ((!user && isGmail(email) && pass === '') || (user && user.provider === 'google' && !user.password && pass === '')) {
+    openGoogleAuth(email);
+    return;
+  }
+
+  if (!user) {
+    showError('loginEmail', 'loginEmailErr', 'No account found with this email.');
+    return;
+  }
+  if (user.password !== btoa(pass)) {
+    showError('loginPass', 'loginPassErr', 'Incorrect password. Please try again.');
+    return;
+  }
+
+  if (remember) localStorage.setItem('bb_remember', JSON.stringify(user));
+  else localStorage.removeItem('bb_remember');
+
+  setCurrentUser(user);
+  closeModal('login');
+  showToast(`Welcome back, ${user.name.split(' ')[0]}! 🎂`, 'success');
+  document.getElementById('loginForm').reset();
+}
+
+function continueWithEmailToGoogle() {
+  const rawEmail = document.getElementById('loginEmail').value.trim().toLowerCase();
+  if (rawEmail && !isValidEmail(rawEmail)) {
+    showError('loginEmail', 'loginEmailErr', 'Please enter a valid email or leave blank to pick a Gmail.');
+    return;
+  }
+  clearErrors('loginEmail', 'loginEmailErr', 'loginPass', 'loginPassErr');
+  openGoogleAuth(rawEmail || '');
+}
+
+/* ---------- GOOGLE ACCOUNT CHOOSER FLOW ---------- */
+function openGoogleAuth(prefilledEmail = '') {
+  /* Try triggering official Google prompt first if configured */
+  if (typeof google !== 'undefined' && google.accounts && google.accounts.id && !GOOGLE_CLIENT_ID.startsWith('YOUR_')) {
+    try {
+      google.accounts.id.prompt();
+    } catch(e) {}
+  }
+
+  ['login', 'register', 'forgot', 'social', 'profile'].forEach(t => closeModal(t));
+  const overlay = document.getElementById('googleAuthOverlay');
+  const progress = document.getElementById('googleProgressBar');
+  const content = document.getElementById('googleCardContent');
+
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  progress.classList.add('active');
+  content.innerHTML = `
+    <div style="padding:18px 0;">
+      <h2 class="google-title">Connecting to Google…</h2>
+      <p class="google-subtitle">Connecting securely to choose your Gmail account for <strong>Bake and Barfi</strong>.</p>
+    </div>
+  `;
+
+  setTimeout(() => {
+    progress.classList.remove('active');
+    if (prefilledEmail && isValidEmail(prefilledEmail)) {
+      const accounts = getGmailAccounts();
+      const matched = accounts.find(a => a.email === prefilledEmail);
+      selectedGoogleAccount = matched || {
+        email: prefilledEmail,
+        name: deriveNameFromEmail(prefilledEmail),
+        avatarColor: AVATAR_COLORS[0]
+      };
+      renderGoogleConfirmStep();
+    } else {
+      renderGoogleChooseStep();
+    }
+  }, 320);
+}
+
+function closeGoogleAuth() {
+  document.getElementById('googleAuthOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function renderGoogleChooseStep() {
+  const accounts = getGmailAccounts();
+  document.getElementById('googleCardContent').innerHTML = `
+    <h2 class="google-title">Choose an account</h2>
+    <p class="google-subtitle">to continue to <strong>Bake and Barfi</strong></p>
+    <div class="google-account-list">
+      ${accounts.map((acc, idx) => `
+        <button type="button" class="google-account-row" onclick="selectGoogleAccount(${idx})">
+          <div class="google-avatar" style="background:${acc.avatarColor}">${getInitials(acc.name)}</div>
+          <div class="google-account-info">
+            <div class="google-account-name">${acc.name}</div>
+            <div class="google-account-email">${acc.email}</div>
+            ${acc.tag ? `<div class="google-account-tag">${acc.tag}</div>` : ''}
+          </div>
+          <i class="fas fa-chevron-right" style="color:#9aa0a6;font-size:0.8rem;"></i>
+        </button>
+      `).join('')}
+      <button type="button" class="google-account-row" onclick="renderGoogleCustomStep()">
+        <div class="google-use-another-icon"><i class="fas fa-user-plus"></i></div>
+        <div class="google-account-info">
+          <div class="google-account-name">Use another account</div>
+          <div class="google-account-email">Enter any Gmail address to continue</div>
+        </div>
+      </button>
+    </div>
+  `;
+}
+
+function selectGoogleAccount(index) {
+  const accounts = getGmailAccounts();
+  selectedGoogleAccount = accounts[index];
+  if (selectedGoogleAccount) renderGoogleConfirmStep();
+}
+
+function renderGoogleCustomStep() {
+  document.getElementById('googleCardContent').innerHTML = `
+    <form onsubmit="submitCustomGoogleAccount(event)">
+      <h2 class="google-title">Sign in</h2>
+      <p class="google-subtitle">Use your Google Account to enter <strong>Bake and Barfi</strong></p>
+      <div class="google-field">
+        <label for="googleCustomEmail">Email or Gmail</label>
+        <input id="googleCustomEmail" type="email" class="google-input" placeholder="yourname@gmail.com" required autofocus />
+      </div>
+      <div class="google-field">
+        <label for="googleCustomName">Display Name (optional)</label>
+        <input id="googleCustomName" type="text" class="google-input" placeholder="e.g. Aditya Jha" />
+      </div>
+      <div class="google-actions">
+        <button type="button" class="google-btn-text" onclick="renderGoogleChooseStep()">Back to accounts</button>
+        <button type="submit" class="google-btn-primary">Next</button>
+      </div>
+    </form>
+  `;
+}
+
+function submitCustomGoogleAccount(e) {
+  e.preventDefault();
+  let raw = document.getElementById('googleCustomEmail').value.trim().toLowerCase();
+  if (!raw.includes('@')) raw += '@gmail.com';
+  if (!isValidEmail(raw)) {
+    showToast('Please enter a valid Gmail address.', 'error');
+    return;
+  }
+  const nameVal = document.getElementById('googleCustomName').value.trim();
+  const accounts = getGmailAccounts();
+  selectedGoogleAccount = accounts.find(a => a.email === raw) || {
+    email: raw,
+    name: nameVal || deriveNameFromEmail(raw),
+    avatarColor: AVATAR_COLORS[accounts.length % AVATAR_COLORS.length]
+  };
+  renderGoogleConfirmStep();
+}
+
+function renderGoogleConfirmStep() {
+  if (!selectedGoogleAccount) return;
+  document.getElementById('googleCardContent').innerHTML = `
+    <h2 class="google-title">Sign in to Bake and Barfi</h2>
+    <div class="google-selected-chip">
+      <div class="google-avatar" style="background:${selectedGoogleAccount.avatarColor};width:26px;height:26px;font-size:0.72rem;">
+        ${getInitials(selectedGoogleAccount.name)}
+      </div>
+      <span>${selectedGoogleAccount.email}</span>
+    </div>
+    <div class="google-consent-box">
+      To continue, Google will share your name (<strong>${selectedGoogleAccount.name}</strong>),
+      email address (<strong>${selectedGoogleAccount.email}</strong>), and profile preferences with <strong>Bake and Barfi</strong>.
+    </div>
+    <div class="google-actions">
+      <button type="button" class="google-btn-text" onclick="renderGoogleChooseStep()">Switch account</button>
+      <button type="button" class="google-btn-primary" onclick="completeGoogleSelection()">Continue</button>
+    </div>
+  `;
+}
+
+function completeGoogleSelection() {
+  if (!selectedGoogleAccount) return;
+  saveGmailAccount(selectedGoogleAccount);
+
+  const users = getUsers();
+  let user = users.find(u => u.email === selectedGoogleAccount.email);
+  if (!user) {
+    user = {
+      id: Date.now(),
+      name: selectedGoogleAccount.name,
+      email: selectedGoogleAccount.email,
+      phone: '',
+      address: '',
+      birthday: '',
+      password: '',
+      provider: 'google',
+      avatarColor: selectedGoogleAccount.avatarColor,
+      createdAt: new Date().toISOString(),
+      orders: []
+    };
+    users.push(user);
+  } else {
+    user.name = user.name || selectedGoogleAccount.name;
+    user.provider = 'google';
+  }
+  saveUsers(users);
+  localStorage.setItem('bb_remember', JSON.stringify(user));
+  setCurrentUser(user);
+  closeGoogleAuth();
+  showToast(`Signed in with Google! Welcome ${user.name.split(' ')[0]}! 🎂`, 'success');
+}
+
+/* ---------- MY PROFILE UI ---------- */
+function openProfileModal(tab = 'profile') {
+  if (!currentUser) {
+    openModal('login');
+    return;
+  }
+  const wrap = document.getElementById('userMenuWrap');
+  if (wrap) wrap.classList.remove('open');
+  activeProfileTab = tab;
+  renderProfileModal();
+  openModal('profile');
+}
+
+function renderProfileModal() {
+  if (!currentUser) return;
+  const orders = currentUser.orders || [];
+  const totalSpent = orders.reduce((sum, o) => sum + o.total, 0);
+  const wishItems = PRODUCTS.filter(p => wishlistIds.includes(p.id));
+  const providerLabel = currentUser.provider === 'google'
+    ? '<i class="fab fa-google"></i> Google / Gmail'
+    : currentUser.provider === 'facebook'
+    ? '<i class="fab fa-facebook-f"></i> Facebook'
+    : '<i class="fas fa-user-check"></i> Email Account';
+
+  let bodyHtml = '';
+  if (activeProfileTab === 'profile') {
+    bodyHtml = `
+      <div class="profile-gmail-card">
+        <div class="profile-gmail-meta">
+          <i class="fab fa-google" style="color:#4285F4;font-size:1.1rem;"></i>
+          <div>
+            <div style="font-weight:700;font-size:0.86rem;">Connected Email / Gmail</div>
+            <div style="font-size:0.8rem;color:var(--text-light);">${currentUser.email}</div>
+          </div>
+        </div>
+        <button type="button" class="btn-switch-gmail" onclick="openGoogleAuth()">
+          <i class="fas fa-exchange-alt"></i> Select Gmail
+        </button>
+      </div>
+      <form class="auth-form" onsubmit="saveProfileForm(event)">
+        <div class="profile-form-grid">
+          <div class="form-group">
+            <label for="profileName">Full Name</label>
+            <div class="auth-input-wrap">
+              <i class="fas fa-user"></i>
+              <input id="profileName" type="text" class="auth-input" value="${currentUser.name || ''}" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="profilePhone">Phone Number</label>
+            <div class="auth-input-wrap">
+              <i class="fas fa-phone"></i>
+              <input id="profilePhone" type="tel" class="auth-input" placeholder="+91 96084 90373" value="${currentUser.phone || ''}" />
+            </div>
+          </div>
+          <div class="form-group full">
+            <label for="profileAddress">Delivery Address (Muzaffarpur)</label>
+            <div class="auth-input-wrap">
+              <i class="fas fa-map-marker-alt"></i>
+              <input id="profileAddress" type="text" class="auth-input" placeholder="House no., Landmark, Muzaffarpur 842002" value="${currentUser.address || ''}" />
+            </div>
+          </div>
+          <div class="form-group full">
+            <label for="profileBirthday">Celebration / Birthday Date</label>
+            <div class="auth-input-wrap">
+              <i class="fas fa-birthday-cake"></i>
+              <input id="profileBirthday" type="date" class="auth-input" value="${currentUser.birthday || ''}" />
+            </div>
+          </div>
+        </div>
+        <div class="profile-actions-row">
+          <button type="button" class="btn-profile-signout" onclick="closeModal('profile');logout()">
+            <i class="fas fa-sign-out-alt"></i> Sign Out
+          </button>
+          <button type="submit" class="btn-primary" style="padding:12px 26px;border-radius:12px;">
+            <i class="fas fa-save"></i> Save Profile
+          </button>
+        </div>
+      </form>
+    `;
+  } else if (activeProfileTab === 'orders') {
+    bodyHtml = orders.length === 0
+      ? `<div class="profile-empty-state"><span>🎂</span><p style="font-weight:600;color:var(--brown);">No orders placed yet!</p><p style="font-size:0.85rem;margin-top:4px;">Explore our freshly baked cakes and pure sweets to place your first order.</p></div>`
+      : orders.map(o => `
+        <div class="profile-order-card">
+          <div class="profile-order-top">
+            <div>
+              <span class="profile-order-id">#${o.id}</span>
+              <span style="margin-left:10px;font-size:0.78rem;color:var(--text-light);">${new Date(o.createdAt).toLocaleDateString()}</span>
+            </div>
+            <span class="profile-order-status">${o.status}</span>
+          </div>
+          <div class="profile-order-items">${o.items.map(i => `${i.emoji} ${i.name} × ${i.qty}`).join('  •  ')}</div>
+          <div class="profile-order-bottom">
+            <strong style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold-dark);">Total: ₹${o.total}</strong>
+            <button type="button" class="btn-add-cart" onclick="reorderFromProfile('${o.id}')"><i class="fas fa-redo"></i> Re-order</button>
+          </div>
+        </div>
+      `).join('');
+  } else {
+    bodyHtml = wishItems.length === 0
+      ? `<div class="profile-empty-state"><span>💝</span><p style="font-weight:600;color:var(--brown);">Your wishlist is empty</p><p style="font-size:0.85rem;margin-top:4px;">Tap the heart icon on any cake or sweet to save your favorites here.</p></div>`
+      : `<div class="profile-wishlist-grid">${wishItems.map(p => `
+        <div class="profile-wish-card">
+          <span style="font-size:2.2rem;">${p.emoji}</span>
+          <div style="flex:1;min-width:0;">
+            <div style="font-family:'Playfair Display',serif;font-weight:700;color:var(--brown);font-size:0.95rem;">${p.name}</div>
+            <div style="color:var(--gold-dark);font-weight:700;font-size:0.85rem;margin-bottom:6px;">₹${p.price}</div>
+            <div style="display:flex;gap:8px;">
+              <button type="button" class="btn-add-cart" style="padding:5px 12px;font-size:0.76rem;" onclick="addToCart(${p.id})"><i class="fas fa-plus"></i> Add</button>
+              <button type="button" class="cart-item-remove" onclick="toggleFav(${p.id});renderProfileModal();renderProducts(activeFilter);"><i class="fas fa-trash-alt"></i></button>
+            </div>
+          </div>
+        </div>
+      `).join('')}</div>`;
+  }
+
+  document.getElementById('profileModalContent').innerHTML = `
+    <div class="profile-banner">
+      <button type="button" class="modal-close" onclick="closeModal('profile')"><i class="fas fa-times"></i></button>
+      <div class="profile-head-row">
+        <div class="profile-avatar-circle">${getInitials(currentUser.name)}</div>
+        <div class="profile-identity">
+          <h2>${currentUser.name}</h2>
+          <div class="profile-email-row">
+            <span><i class="fas fa-envelope" style="margin-right:6px;"></i>${currentUser.email}</span>
+            <span class="profile-provider-badge">${providerLabel}</span>
+          </div>
+        </div>
+      </div>
+      <div class="profile-stats-bar">
+        <div class="profile-stat-box"><strong>${orders.length}</strong><span>Orders Placed</span></div>
+        <div class="profile-stat-box"><strong>${wishItems.length}</strong><span>Wishlist Treats</span></div>
+        <div class="profile-stat-box"><strong>₹${totalSpent}</strong><span>Total Ordered</span></div>
+      </div>
+    </div>
+    <div class="profile-tabs">
+      <button type="button" class="profile-tab-btn ${activeProfileTab==='profile'?'active':''}" onclick="switchProfileTab('profile')"><i class="fas fa-user"></i> My Profile</button>
+      <button type="button" class="profile-tab-btn ${activeProfileTab==='orders'?'active':''}" onclick="switchProfileTab('orders')"><i class="fas fa-shopping-bag"></i> My Orders (${orders.length})</button>
+      <button type="button" class="profile-tab-btn ${activeProfileTab==='wishlist'?'active':''}" onclick="switchProfileTab('wishlist')"><i class="fas fa-heart"></i> Wishlist (${wishItems.length})</button>
+    </div>
+    <div class="profile-body">${bodyHtml}</div>
+  `;
+}
+
+function switchProfileTab(tab) {
+  activeProfileTab = tab;
+  renderProfileModal();
+}
+
+function saveProfileForm(e) {
+  e.preventDefault();
+  if (!currentUser) return;
+  const name = document.getElementById('profileName').value.trim();
+  if (name.length < 2) { showToast('Name must be at least 2 characters.', 'error'); return; }
+  currentUser.name = name;
+  currentUser.phone = document.getElementById('profilePhone').value.trim();
+  currentUser.address = document.getElementById('profileAddress').value.trim();
+  currentUser.birthday = document.getElementById('profileBirthday').value.trim();
+
+  const users = getUsers();
+  const idx = users.findIndex(u => u.email === currentUser.email);
+  if (idx >= 0) users[idx] = currentUser;
+  else users.push(currentUser);
+  saveUsers(users);
+  if (localStorage.getItem('bb_remember')) localStorage.setItem('bb_remember', JSON.stringify(currentUser));
+  setCurrentUser(currentUser);
+  renderProfileModal();
+  showToast('Profile saved successfully! ✨', 'success');
+}
+
+function reorderFromProfile(orderId) {
+  if (!currentUser) return;
+  const order = (currentUser.orders || []).find(o => o.id === orderId);
+  if (!order) return;
+  order.items.forEach(item => {
+    for (let i = 0; i < item.qty; i++) addToCart(item.id);
+  });
+  closeModal('profile');
+  toggleCart();
+}
+
+/* ---------- REGISTER ---------- */
+function handleRegister(e) {
+  e.preventDefault();
+  const name = document.getElementById('regName').value.trim();
+  const email = document.getElementById('regEmail').value.trim().toLowerCase();
+  const phone = document.getElementById('regPhone').value.trim();
+  const pass = document.getElementById('regPass').value;
+  const passConfirm = document.getElementById('regPassConfirm').value;
+
+  clearErrors('regEmail', 'regEmailErr', 'regPass', 'regPassErr', 'regPassConfirm', 'regPassConfirmErr');
+
+  let valid = true;
+  if (name.length < 2) { showError('regName', 'regNameErr', 'Please enter your full name.'); valid = false; }
+
+  const users = getUsers();
+  if (users.find(u => u.email === email)) {
+    showError('regEmail', 'regEmailErr', 'This email is already registered. Please sign in.');
+    valid = false;
+  }
+  if (pass.length < 6) { showError('regPass', 'regPassErr', 'Password must be at least 6 characters.'); valid = false; }
+  if (pass !== passConfirm) { showError('regPassConfirm', 'regPassConfirmErr', 'Passwords do not match.'); valid = false; }
+  if (!valid) return;
+
+  const newUser = { id: Date.now(), name, email, phone, address:'', birthday:'', password: btoa(pass), provider: 'email', createdAt: new Date().toISOString(), orders: [] };
+  users.push(newUser);
+  saveUsers(users);
+  setCurrentUser(newUser);
+  closeModal('register');
+  showToast(`Welcome to Bake and Barfi, ${name.split(' ')[0]}! 🎉`, 'success');
+  document.getElementById('registerForm').reset();
+}
+
+/* ---------- FORGOT PASSWORD ---------- */
+function handleForgot(e) {
+  e.preventDefault();
+  const email = document.getElementById('forgotEmail').value.trim().toLowerCase();
+  const users = getUsers();
+  const user = users.find(u => u.email === email);
+  closeModal('forgot');
+  if (user) {
+    showToast('Password reset info saved! Check your email. 📧', 'success');
+  } else {
+    showToast('No account found with that email.', 'error');
+  }
+}
+
+/* ---------- SOCIAL LOGIN (FACEBOOK) ---------- */
+let _socialProvider = '';
+function socialLogin(provider) {
+  if (provider === 'google') { openGoogleAuth(); return; }
+  _socialProvider = provider;
+  openModal('social');
+}
+
+function completeSocialLogin(e) {
+  e.preventDefault();
+  const name = document.getElementById('socialName').value.trim();
+  const email = document.getElementById('socialEmail').value.trim().toLowerCase();
+  const phone = document.getElementById('socialPhone').value.trim();
+
+  if (name.length < 2 || !email) { showToast('Please fill all required fields.', 'error'); return; }
+
+  const users = getUsers();
+  let user = users.find(u => u.email === email);
+
+  if (!user) {
+    user = { id: Date.now(), name, email, phone, address:'', birthday:'', password: '', provider: _socialProvider || 'facebook', createdAt: new Date().toISOString(), orders: [] };
+    users.push(user);
+    saveUsers(users);
+  } else {
+    user.name = user.name || name;
+    user.phone = user.phone || phone;
+    saveUsers(users);
+  }
+
+  localStorage.setItem('bb_remember', JSON.stringify(user));
+  setCurrentUser(user);
+  closeModal('social');
+  showToast(`Signed in with Facebook! Welcome ${name.split(' ')[0]}! 🎂`, 'success');
+  document.getElementById('socialLoginForm').reset();
+}
+
+/* ---------- LOGOUT ---------- */
+function logout() {
+  currentUser = null;
+  localStorage.removeItem('bb_current_user');
+  localStorage.removeItem('bb_remember');
+  updateNavUser();
+  if (typeof google !== 'undefined' && google.accounts && google.accounts.id) {
+    try { google.accounts.id.disableAutoSelect(); } catch(e) {}
+  }
+  showToast('Signed out successfully. See you soon! 👋', 'success');
+}
+
+/* ---------- ERROR HELPERS ---------- */
+function showError(inputId, errId, msg) {
+  const input = document.getElementById(inputId);
+  const err = document.getElementById(errId);
+  if (input) input.classList.add('error');
+  if (err) { err.textContent = msg; err.style.display = 'block'; }
+}
+
+function clearErrors(...ids) {
+  for (let i = 0; i < ids.length; i += 2) {
+    const input = document.getElementById(ids[i]);
+    const err = document.getElementById(ids[i + 1]);
+    if (input) input.classList.remove('error');
+    if (err) err.style.display = 'none';
+  }
+}
+
+/* ---------- SHOW/HIDE PASSWORD ---------- */
+function togglePass(inputId, btn) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+  const isPass = input.type === 'password';
+  input.type = isPass ? 'text' : 'password';
+  btn.innerHTML = isPass ? '<i class="fas fa-eye-slash"></i>' : '<i class="fas fa-eye"></i>';
+}
+
+/* ---------- TOAST ---------- */
+function showToast(message, type = 'info') {
+  const container = document.getElementById('toast-container');
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  const icon = type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle';
+  toast.innerHTML = `<i class="fas ${icon}"></i><span>${message}</span>`;
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.style.animation = 'toast-in 0.4s ease reverse';
+    setTimeout(() => toast.remove(), 400);
+  }, 3200);
+}
+
+/* ---------- CONTACT FORM ---------- */
+function submitContact(e) {
+  e.preventDefault();
+  const form = e.target;
+  const name = form.querySelector('input[type="text"]').value.trim();
+  const phone = form.querySelector('input[type="tel"]').value.trim();
+  const message = form.querySelector('textarea').value.trim();
+  const orderType = form.querySelector('select').value;
+
+  const waMsg = encodeURIComponent(
+    `🎂 *Enquiry from Bake and Barfi Website*\n\nName: ${name}\nPhone: ${phone || 'Not provided'}\nOrder Type: ${orderType || 'General'}\n\nMessage:\n${message}`
+  );
+  window.open(`https://wa.me/919608490373?text=${waMsg}`, '_blank');
+  form.reset();
+  showToast('Message sent! We\'ll get back to you soon. 🎂', 'success');
+}
+
+/* ---------- ANIMATE NUMBERS ---------- */
+function animateNumber(el, end, duration = 1500, suffix = '') {
+  let start = 0;
+  const step = end / (duration / 16);
+  const run = () => {
+    start += step;
+    if (start >= end) { el.textContent = end + suffix; return; }
+    el.textContent = Math.floor(start) + suffix;
+    requestAnimationFrame(run);
+  };
+  requestAnimationFrame(run);
+}
+
+const statsObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const strongs = entry.target.querySelectorAll('.hero-stat strong');
+      const values = [5000, 50, 4.9, 10];
+      const suffixes = ['+', '+', '⭐', '+'];
+      strongs.forEach((el, i) => animateNumber(el, values[i], 1600, suffixes[i]));
+      statsObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+const waitForStats = setInterval(() => {
+  const stats = document.querySelector('.hero-stats');
+  if (stats) { statsObs.observe(stats); clearInterval(waitForStats); }
+}, 100);
+
+/* ---------- SMOOTH SCROLL FOR NAV ---------- */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+/* ---------- SCROLL INDICATOR ANIMATION ---------- */
+function reObserve() {
+  setTimeout(() => {
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 50) el.classList.add('visible');
+    });
+  }, 100);
+}
+window.addEventListener('scroll', reObserve, { passive: true });
+</script>
+</body>
+</html>
